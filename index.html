@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cheatly is a private PTY-powered terminal overlay for macOS screen sharing. Run AI LLM tools like Codex, Claude, local models, git, scripts, and CLI tools while you present with confidence.">
+  <meta name="keywords" content="AI LLM terminal macOS, private terminal macOS, screen sharing terminal, Codex terminal, Claude terminal, local LLM, PTY terminal, macOS overlay">
+  <meta name="author" content="Cheatly">
+  <meta name="application-name" content="Cheatly">
+  <meta name="theme-color" content="#172622">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://cheatly.pro/">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Cheatly">
+  <meta property="og:title" content="Cheatly — Think in private">
+  <meta property="og:description" content="A private terminal for live screen sharing on macOS. Use your terminal tools, think clearly, and stay present.">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://cheatly.pro/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cheatly — Think in private">
+  <meta name="twitter:description" content="A private PTY-powered terminal overlay for confident macOS screen sharing.">
+  <title>Cheatly — Private macOS terminal for screen sharing</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Cheatly",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS 13 or later",
+        "description": "A private PTY-powered terminal overlay for macOS screen sharing.",
+        "offers": {
+          "@type": "Offer",
+          "price": "2000",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2026-10-30"
+        },
+        "featureList": "Real PTY terminal, AI LLM support, Codex and Claude support, local model support, click-through mode, show and hide shortcut"
+      },
+      {
+        "@type": "WebSite",
+        "name": "Cheatly",
+        "description": "A private terminal workspace for macOS screen sharing."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"What is Cheatly?","acceptedAnswer":{"@type":"Answer","text":"Cheatly is a real PTY-powered terminal overlay for macOS that gives you a private workspace while you share your screen."}},
+          {"@type":"Question","name":"Can I run AI LLM tools like Codex or Claude?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can run Codex, Claude, local LLM tools, git, scripts, and other command-line tools available in your Mac terminal."}},
+          {"@type":"Question","name":"How do I receive Cheatly?","acceptedAnswer":{"@type":"Answer","text":"DM the seller on Discord for UPI details, send the payment screenshot and your delivery email, then receive the zipped installer through a private WeTransfer link after approval."}},
+          {"@type":"Question","name":"Which Macs are supported?","acceptedAnswer":{"@type":"Answer","text":"The current release supports macOS 13 or later on Apple Silicon Macs."}},
+          {"@type":"Question","name":"What shortcuts does Cheatly have?","acceptedAnswer":{"@type":"Answer","text":"Command-M toggles click-through mode, Command-N shows or hides the overlay, and standard Command-C and Command-V copy and paste work in the terminal."}},
+          {"@type":"Question","name":"Will Cheatly be hidden in every screen-sharing app?","acceptedAnswer":{"@type":"Answer","text":"Cheatly is designed for supported screen-capture paths, but no screen-capture setup is universal. Test it with the platform you plan to use before an important session."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="offer-banner"><div class="offer-track"><span>60% OFF</span><b>AI-era lifetime access · Now ₹2,000 · Was ₹5,000</b><small>Offer ends 30 October</small><i>✦</i><span>60% OFF</span><b>AI-era lifetime access · Now ₹2,000 · Was ₹5,000</b><small>Offer ends 30 October</small><i>✦</i></div></div>
+  <header class="nav shell">
+    <a class="brand" href="#top"><span class="brand-mark">⌁</span> Cheatly</a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#features">Features</a><a href="#how">How it works</a><a href="#access">Access</a><a href="#buy">Pricing</a><a href="#faq">FAQ</a></nav>
+    <a class="nav-buy" data-buy href="#access">Get lifetime access →</a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> A private terminal for live work</span>
+        <h1>Think in private.<br><em>Speak with confidence.</em></h1>
+        <p>Keep a real terminal beside your shared screen. Run AI LLM tools like Codex, Claude, or a local model, check a command, and gather your thoughts without breaking the conversation.</p>
+        <a class="button" data-buy href="#access">Get lifetime access <b>₹2,000</b></a>
+      </div>
+      <div class="demo-wrap">
+        <div class="demo-label"><span class="pulse"></span> Private in supported screen-capture paths · Try the shortcuts</div>
+        <div class="demo-card"><canvas id="demoCanvas" aria-label="Interactive animation showing a private terminal over a shared screen"></canvas></div>
+        <div class="demo-controls">
+          <button id="modeButton" type="button"><span>⌘M</span> Click-through</button>
+          <button id="visibilityButton" type="button"><span>⌘N</span> Hide overlay</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy-callout shell"><div class="privacy-mark">◌</div><div><span class="eyebrow">Private by design</span><h2>The terminal is visible only to you.</h2><p>While your screen is shared, the private terminal stays out of the shared view in supported screen-capture paths. Your audience sees the app underneath.</p></div><span class="privacy-note">Your screen<br>≠ shared screen</span></section>
+
+    <section class="flap-demo shell">
+      <div class="flap-heading"><div><span class="eyebrow">Drag to see the difference</span><h2>Your view<br><span class="vs-line">vs</span><br>what others see.</h2></div><p>Move the divider across the canvas. Your side includes the LLM terminal; the shared side shows the live call and presentation.</p></div>
+      <div class="flap-player"><canvas id="flapCanvas" aria-label="Interactive comparison between the private terminal view and shared screen view"></canvas><div class="flap-hint">← drag the divider →</div></div>
+      <input id="flapSlider" class="flap-slider" type="range" min="18" max="82" value="54" aria-label="Compare your private view with the shared view">
+      <div class="flap-labels"><span>YOUR VIEW · PRIVATE TERMINAL</span><span>SHARED VIEW · PRESENTATION</span></div>
+    </section>
+
+    <section class="story-video shell">
+      <div class="story-video-heading"><span class="eyebrow">See it in 60 seconds</span><h2>One private layer.<br>More room to think.</h2><p>A short visual tour of what Cheatly is, how it works, and what you can do with it.</p></div>
+      <div class="story-player"><canvas id="storyCanvas" aria-label="Presentation-style video explaining Cheatly"></canvas><div class="story-progress"><span id="storyProgress"></span></div></div>
+      <div class="story-controls"><button id="storyPlay" type="button">Ⅱ Pause</button><div class="story-dots" id="storyDots" aria-label="Video slides"></div><span id="storyTime">01 / 04</span></div>
+    </section>
+
+    <section id="features" class="shortcuts shell">
+      <div class="shortcut-intro"><span class="eyebrow">Three controls to remember</span><h2>Stay with the<br>conversation.</h2></div>
+      <div class="shortcut-list">
+        <div class="shortcut"><kbd>⌘ M</kbd><div><strong>Pass through</strong><small>Use the app underneath</small></div></div>
+        <div class="shortcut"><kbd>⌘ N</kbd><div><strong>Show / hide</strong><small>Bring your layer back</small></div></div>
+        <div class="shortcut"><kbd>⌘ C<br>⌘ V</kbd><div><strong>Copy / paste</strong><small>Move ideas without friction</small></div></div>
+      </div>
+    </section>
+
+    <section class="signal-strip shell">
+      <span>REAL PTY</span><i></i><span>AI LLMS · YOUR TOOLS</span><i></i><span>MACOS 13+</span>
+    </section>
+
+    <section id="how" class="how-it-works shell">
+      <div class="how-intro"><span class="eyebrow">What you actually do with it</span><h2>A small window<br>with a lot of room.</h2><p>Cheatly runs a separate PTY-powered terminal layer. While your screen is shared, the audience sees the app you choose to present; you see the private terminal.</p></div>
+      <div class="how-grid">
+        <article class="how-card"><span>01</span><h3>Open your AI toolkit</h3><p>Run Codex, Claude, a local LLM, git, scripts, or any command-line tool already installed on your Mac.</p></article>
+        <article class="how-card"><span>02</span><h3>Ask, test, refine</h3><p>Use an AI LLM to explore an idea, check a command, or work through the next step without narrating every thought.</p></article>
+        <article class="how-card"><span>03</span><h3>Stay in control</h3><p>Use <kbd>⌘ M</kbd> to interact with the screen underneath, or <kbd>⌘ N</kbd> to hide and bring the layer back.</p></article>
+        <article class="how-card"><span>04</span><h3>Return to the room</h3><p>Come back with a clearer answer and keep the demo, interview, or explanation moving.</p></article>
+      </div>
+    </section>
+
+    <section class="reassurance">
+      <div class="shell reassurance-inner"><span class="eyebrow">Made for real moments</span><h2>No new workflow.<br>Just more breathing room.</h2><div class="reassurance-note"><span>2,000</span><p>lifetime licenses<br><b>macOS 13+ · Apple Silicon</b></p></div></div>
+    </section>
+
+    <section id="access" class="access shell">
+      <div class="access-heading"><div><span class="eyebrow">Simple, human access</span><h2>Pay once.<br>We take it from there.</h2></div><p>Everything happens personally through Discord. No automated checkout, no confusing hand-off.</p></div>
+      <div class="access-visual"><canvas id="accessCanvas" aria-label="Animated purchase and delivery process"></canvas><div class="visual-caption"><span class="pulse"></span><span id="processCaption">Start with a quick Discord message</span></div></div>
+      <div class="access-details">
+        <div class="access-detail"><span class="step-icon">01</span><div><h3>Your part</h3><p><a href="https://discord.com/users/wfwfo" target="_blank" rel="noopener">DM on Discord</a> for UPI details, then send the payment screenshot and the email address for delivery.</p></div></div>
+        <div class="access-detail"><span class="step-icon">02</span><div><h3>Our part</h3><p>We review the payment, approve the request, zip the installer, and send it manually through WeTransfer.</p></div></div>
+        <div class="access-detail"><span class="step-icon">03</span><div><h3>Always supported</h3><p>Questions or installation trouble? Use the Installation Help or Bug Reports channel in Discord.</p></div></div>
+      </div>
+      <div class="install-note"><span class="eyebrow">After delivery</span><p>Open the received installer and follow the included README. On first launch, Control-click the app and choose <b>Open</b>. If macOS still blocks the unsigned test build, use the troubleshooting steps provided.</p></div>
+      <div class="support-note"><span>Need help?</span><p>Join Discord and use the <b>Installation Help</b>, <b>Payment Approval</b>, or <b>Bug Reports</b> channel.</p><a href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Join Discord →</a></div>
+    </section>
+
+    <section id="buy" class="buy shell"><div><span class="eyebrow">60% off until 30 October</span><h2>Keep it close when<br>the screen is shared.</h2></div><div class="buy-right"><strong><del>₹5,000</del> ₹2,000</strong><small>one-time lifetime payment</small><a class="button" data-buy href="#access">Get the terminal →</a></div></section>
+    <section class="qr-cta shell"><div><span class="eyebrow">Talk to a human</span><h2>DM to get started.</h2><p>Scan the code or open Discord. We’ll share the UPI details and help you through setup.</p><a href="https://discord.com/users/wfwfo" target="_blank" rel="noopener">Open Discord DM →</a></div><div class="qr-frame"><img src="discord-dm-qr.png" alt="QR code to open the Discord DM" width="156" height="156"><span>SCAN TO DM</span></div></section>
+    <section id="faq" class="faq shell">
+      <div class="faq-heading"><span class="eyebrow">Questions, answered</span><h2>Before you<br>get started.</h2><p>Still unsure? Ask in Discord and we’ll help you choose the right setup.</p></div>
+      <div class="faq-list">
+        <details open><summary>What is Cheatly?</summary><p>Cheatly is a real PTY-powered terminal overlay for macOS. It gives you a private workspace while you share your screen.</p></details>
+        <details><summary>Can I run AI LLM tools like Codex or Claude?</summary><p>Yes. You can run Codex, Claude, local LLM tools, git, scripts, and other command-line tools available in your Mac terminal.</p></details>
+        <details><summary>How do I receive Cheatly?</summary><p>DM the seller on Discord for UPI details, send the payment screenshot and your delivery email, then receive the zipped installer through a private WeTransfer link after approval.</p></details>
+        <details><summary>Which Macs are supported?</summary><p>The current release supports macOS 13 or later on Apple Silicon Macs.</p></details>
+        <details><summary>What shortcuts does Cheatly have?</summary><p><kbd>⌘ M</kbd> toggles click-through mode, <kbd>⌘ N</kbd> shows or hides the overlay, and standard <kbd>⌘ C</kbd> and <kbd>⌘ V</kbd> copy and paste work in the terminal.</p></details>
+        <details><summary>Will it be hidden in every screen-sharing app?</summary><p>Cheatly is designed for supported screen-capture paths, but no setup is universal. Test it with the platform you plan to use before an important session.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><span>Cheatly · 2026</span><span>macOS 13+ · PTY-powered</span></footer>
+  <script src="config.js"></script>
+  <script src="demo.js?v=7"></script>
+</body>
+</html>
