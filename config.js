@@ -5,6 +5,9 @@ const PRODUCT_CONFIG = {
   downloadUrl: ""
 };
 
+// Replace this with your Google Analytics 4 Measurement ID, for example G-ABC1234567.
+const GA4_MEASUREMENT_ID = "";
+
 document.querySelectorAll("[data-buy]").forEach((link) => {
   link.href = PRODUCT_CONFIG.checkoutUrl;
 });
