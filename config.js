@@ -6,7 +6,7 @@ const PRODUCT_CONFIG = {
 };
 
 // Google Analytics 4 Measurement ID.
-const GA4_MEASUREMENT_ID = "G-L28HCH51R9";
+const GA4_MEASUREMENT_ID = "G-CZ3CTQKVYP";
 
 document.querySelectorAll("[data-buy]").forEach((link) => {
   link.href = PRODUCT_CONFIG.checkoutUrl;
