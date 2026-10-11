@@ -90,7 +90,7 @@ resizeCanvas(); updateControls(); requestAnimationFrame(draw);
 const accessCanvas = document.getElementById('accessCanvas');
 const accessCtx = accessCanvas.getContext('2d');
 const processCaption = document.getElementById('processCaption');
-const processSteps = ['DM for UPI details', 'Send payment proof', 'Share your email', 'Receive the WeTransfer link'];
+const processSteps = ['Pay on Razorpay', 'Send proof on Discord', 'Receive the WeTransfer file'];
 let accessStartedAt = performance.now();
 
 function resizeAccessCanvas() {
@@ -105,25 +105,25 @@ function resizeAccessCanvas() {
 function drawAccessProcess(now) {
   const w = accessCanvas.logicalWidth || accessCanvas.clientWidth;
   const h = accessCanvas.logicalHeight || 180;
-  const phase = ((now - accessStartedAt) / 1000) % 8;
-  const active = Math.min(3, Math.floor(phase / 2));
+  const phase = ((now - accessStartedAt) / 1000) % 6;
+  const active = Math.min(2, Math.floor(phase / 2));
   accessCtx.clearRect(0, 0, w, h);
   accessCtx.fillStyle = '#172622'; accessCtx.fillRect(0, 0, w, h);
   const left = Math.max(46, w * .1), right = Math.min(w - 46, w * .9), y = h * .48;
   accessCtx.strokeStyle = '#426454'; accessCtx.lineWidth = 2; accessCtx.beginPath(); accessCtx.moveTo(left, y); accessCtx.lineTo(right, y); accessCtx.stroke();
-  const labels = ['UPI', 'DISCORD', 'EMAIL', 'WETRANSFER'];
-  const icons = ['₹', '✓', '✉', '↗'];
+  const labels = ['RAZORPAY', 'DISCORD', 'WETRANSFER'];
+  const icons = ['₹', '✓', '↗'];
   const progress = (phase % 2) / 2;
   for (let i = 0; i < 4; i++) {
-    const x = left + (right - left) * (i / 3);
+    const x = left + (right - left) * (i / 2);
     const isDone = i < active, isActive = i === active;
     accessCtx.fillStyle = isDone || isActive ? '#6aa579' : '#355247';
     accessCtx.beginPath(); accessCtx.arc(x, y, isActive ? 21 : 17, 0, Math.PI * 2); accessCtx.fill();
     accessCtx.fillStyle = '#f7f6f0'; accessCtx.font = 'bold 15px Manrope, sans-serif'; accessCtx.textAlign = 'center'; accessCtx.textBaseline = 'middle'; accessCtx.fillText(icons[i], x, y + 1);
     accessCtx.fillStyle = '#c3d5c4'; accessCtx.font = '500 9px DM Mono, monospace'; accessCtx.textBaseline = 'alphabetic'; accessCtx.fillText(labels[i], x, y + 43);
   }
-  const from = left + (right - left) * (active / 3), to = left + (right - left) * (Math.min(active + 1, 3) / 3);
-  const dotX = active === 3 ? right : from + (to - from) * progress;
+  const from = left + (right - left) * (active / 2), to = left + (right - left) * (Math.min(active + 1, 2) / 2);
+  const dotX = active === 2 ? right : from + (to - from) * progress;
   accessCtx.fillStyle = '#c1e681'; accessCtx.beginPath(); accessCtx.arc(dotX, y - 33, 5, 0, Math.PI * 2); accessCtx.fill();
   processCaption.textContent = processSteps[active];
   requestAnimationFrame(drawAccessProcess);
@@ -131,6 +131,7 @@ function drawAccessProcess(now) {
 window.addEventListener('resize', resizeAccessCanvas);
 resizeAccessCanvas(); requestAnimationFrame(drawAccessProcess);
 
+if (document.getElementById('storyCanvas')) {
 const storyCanvas = document.getElementById('storyCanvas');
 const storyCtx = storyCanvas.getContext('2d');
 const storyPlay = document.getElementById('storyPlay');
@@ -189,6 +190,7 @@ function updateStoryDots() { [...storyDots.children].forEach((dot, i) => dot.cla
 function updateStoryControls() { storyPlay.textContent = storyPlaying ? 'Ⅱ Pause' : '▶ Play'; updateStoryDots(); }
 storyPlay.addEventListener('click', () => { if (storyPlaying) { storyPausedAt = (performance.now() - storyStartedAt) / 1000; storyPlaying = false; } else { storyStartedAt = performance.now() - storyPausedAt * 1000; storyPlaying = true; } updateStoryControls(); });
 window.addEventListener('resize', resizeStoryCanvas); resizeStoryCanvas(); updateStoryControls(); requestAnimationFrame(drawStory);
+}
 
 const flapCanvas = document.getElementById('flapCanvas');
 const flapCtx = flapCanvas.getContext('2d');
