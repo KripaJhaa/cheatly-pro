@@ -72,3 +72,4 @@ h1,h2,h3{overflow-wrap:normal;word-break:normal;text-wrap:balance}
 @media(max-width:600px){.payment-cta{align-items:flex-start;flex-direction:column}.payment-cta .button{width:100%;justify-content:center}}
 @media(max-width:520px){.floating-discord{right:16px;bottom:16px;width:48px;height:48px}.floating-discord::after{display:none}}
 @media(max-width:800px){.use-cases{padding:88px 0 95px}.use-cases-heading{display:block}.use-cases-heading p{margin-top:20px;max-width:420px}.use-cases-marquee{margin-left:-15px;margin-right:-15px}}
+@media(max-width:520px){.use-cases-heading h2{font-size:42px;line-height:1.18;letter-spacing:-.035em;word-spacing:.035em}.use-cases-heading h2 em{display:inline-block;margin-top:4px;line-height:1.02;letter-spacing:.015em}}
