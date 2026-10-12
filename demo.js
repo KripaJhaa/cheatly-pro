@@ -217,7 +217,7 @@ function drawFlap() {
   flapCtx.textAlign = 'left'; flapCtx.fillStyle = '#7c9680'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('You are presenting · microphone on', w * .11, h - 31); flapCtx.restore();
   // Private terminal view is clipped to the user's side of the flap.
   flapCtx.save(); flapCtx.beginPath(); flapCtx.rect(0, 0, split, h); flapCtx.clip(); flapCtx.fillStyle = '#172622'; flapCtx.fillRect(0, 0, split, h); flapCtx.fillStyle = '#2c463b'; flapCtx.fillRect(0, 0, split, 34); flapCtx.fillStyle = '#c1e681'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('YOUR VIEW · PRIVATE', 20, 21);
-  const tw = Math.min(310, w * .66), tx = Math.max(22, split * .5 - tw * .5), ty = 62; flapBox(tx, ty, tw, 142, 9, '#10201c'); flapCtx.fillStyle = '#284139'; flapCtx.fillRect(tx, ty, tw, 25); flapCtx.fillStyle = '#ef7569'; flapCtx.beginPath(); flapCtx.arc(tx + 14, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#e7be62'; flapCtx.beginPath(); flapCtx.arc(tx + 26, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#7ac366'; flapCtx.beginPath(); flapCtx.arc(tx + 38, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#9dcf83'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('~/workspace', tx + 15, ty + 48); flapCtx.fillStyle = '#77d3c1'; flapCtx.fillText('$', tx + 84, ty + 48); flapCtx.fillStyle = '#d4e2d4'; flapCtx.fillText('codex', tx + 97, ty + 48); flapCtx.fillStyle = '#c1e681'; flapCtx.fillText('LLM QUERY', tx + 15, ty + 75); flapCtx.fillStyle = '#b8c9ba'; flapCtx.fillText('Design a scalable chat system', tx + 15, ty + 91); flapCtx.fillText('for 1M concurrent users.', tx + 15, ty + 105); flapCtx.fillStyle = '#83c8bc'; flapCtx.fillText('system design · thinking…', tx + 15, ty + 124); flapCtx.restore();
+  const tw = Math.max(130, Math.min(310, split - 32)), tx = Math.max(16, (split - tw) * .5), ty = 62; flapBox(tx, ty, tw, 142, 9, '#10201c'); flapCtx.fillStyle = '#284139'; flapCtx.fillRect(tx, ty, tw, 25); flapCtx.fillStyle = '#ef7569'; flapCtx.beginPath(); flapCtx.arc(tx + 14, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#e7be62'; flapCtx.beginPath(); flapCtx.arc(tx + 26, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#7ac366'; flapCtx.beginPath(); flapCtx.arc(tx + 38, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#9dcf83'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('~/workspace', tx + 15, ty + 48); flapCtx.fillStyle = '#77d3c1'; flapCtx.fillText('$', tx + 84, ty + 48); flapCtx.fillStyle = '#d4e2d4'; flapCtx.fillText('codex', tx + 97, ty + 48); flapCtx.fillStyle = '#c1e681'; flapCtx.fillText('LLM QUERY', tx + 15, ty + 75); flapCtx.fillStyle = '#b8c9ba'; flapCtx.fillText('Design a scalable chat system', tx + 15, ty + 91); flapCtx.fillText('for 1M concurrent users.', tx + 15, ty + 105); flapCtx.fillStyle = '#83c8bc'; flapCtx.fillText('system design · thinking…', tx + 15, ty + 124); flapCtx.restore();
   // Flap handle and labels.
   flapCtx.fillStyle = '#c1e681'; flapCtx.fillRect(split - 2, 0, 4, h); flapCtx.fillStyle = '#c1e681'; flapCtx.beginPath(); flapCtx.arc(split, h * .5, 14, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#172622'; flapCtx.font = 'bold 13px Manrope, sans-serif'; flapCtx.textAlign = 'center'; flapCtx.fillText('↔', split, h * .5 + 5); flapCtx.textAlign = 'left';
 }
@@ -229,3 +229,19 @@ flapCanvas.addEventListener('pointerup', event => { flapDragging = false; flapCa
 flapCanvas.addEventListener('pointercancel', () => { flapDragging = false; });
 flapSlider.addEventListener('input', () => { flapPosition = Number(flapSlider.value) / 100; drawFlap(); });
 window.addEventListener('resize', resizeFlapCanvas); resizeFlapCanvas(); drawFlap();
+
+const mobileNav = document.querySelector('.mobile-nav');
+const mobileNavToggle = document.getElementById('mobileNavToggle');
+const mobileNavPanel = document.getElementById('mobileNavPanel');
+function closeMobileNav() {
+  if (!mobileNav || !mobileNavToggle || !mobileNavPanel) return;
+  mobileNav.classList.remove('is-open');
+  mobileNavToggle.setAttribute('aria-expanded', 'false');
+  mobileNavPanel.setAttribute('aria-hidden', 'true');
+}
+mobileNavToggle?.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('is-open');
+  mobileNavToggle.setAttribute('aria-expanded', String(isOpen));
+  mobileNavPanel.setAttribute('aria-hidden', String(!isOpen));
+});
+mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileNav));

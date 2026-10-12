@@ -59,6 +59,7 @@
           {"@type":"Question","name":"Which Macs are supported?","acceptedAnswer":{"@type":"Answer","text":"The current release supports macOS 13 or later on Apple Silicon Macs."}},
           {"@type":"Question","name":"What shortcuts does Cheatly have?","acceptedAnswer":{"@type":"Answer","text":"Command-M toggles click-through mode, Command-N shows or hides the overlay, and standard Command-C and Command-V copy and paste work in the terminal."}},
           {"@type":"Question","name":"Which screen-sharing apps can I use?","acceptedAnswer":{"@type":"Answer","text":"Cheatly is designed for supported capture paths in apps such as Teams, Zoom, Google Meet, and WhatsApp. Capture behavior can vary by app, call mode, and system settings, so test your setup before an important session."}},
+          {"@type":"Question","name":"Is Cheatly meant for cheating in interviews?","acceptedAnswer":{"@type":"Answer","text":"No. Cheatly does not support cheating or deceptive use during interviews, exams, or professional calls. Ask your interviewer or meeting host for permission before using LLM tools, and follow their rules."}},
           {"@type":"Question","name":"Is the purchase refundable?","acceptedAnswer":{"@type":"Answer","text":"Because Cheatly is a downloadable digital product delivered after payment, purchases are non-refundable once delivery has been initiated. Review the requirements and test compatibility before purchasing. Contact Discord support for installation issues."}}
         ]
       }
@@ -92,11 +93,12 @@
 </head>
 <body>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2319515568893162&ev=PageView&noscript=1" alt=""></noscript>
-  <div class="offer-banner"><div class="offer-track"><span>60% OFF</span><b>AI-era lifetime access · Now ₹2,000 · Was ₹5,000</b><small>Offer ends 30 October</small><i>✦</i><span>60% OFF</span><b>AI-era lifetime access · Now ₹2,000 · Was ₹5,000</b><small>Offer ends 30 October</small><i>✦</i></div></div>
+  <div class="offer-banner"><div class="offer-track"><span>60% OFF</span><b>AI-era lifetime access · Limited offer</b><small>Offer ends 30 October</small><i>✦</i><span>60% OFF</span><b>AI-era lifetime access · Limited offer</b><small>Offer ends 30 October</small><i>✦</i></div></div>
   <header class="nav shell">
     <a class="brand" href="#top" aria-label="Cheatly home"><img class="brand-logo" src="cheatly.png" alt="Cheatly logo"><span>Cheatly</span></a>
     <nav class="nav-links" aria-label="Main navigation"><a href="#use-cases">Use cases</a><a href="#how">How it works</a><a href="#access">Access</a><a href="#buy">Pricing</a><a href="#faq">FAQ</a></nav>
-    <a class="nav-buy" data-buy href="https://rzp.io/rzp/cheatlyPro" target="_blank" rel="noopener">Pay ₹2,000 →</a>
+    <div class="mobile-nav"><button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-expanded="false" aria-controls="mobileNavPanel">Menu <span>+</span></button><div class="mobile-nav-panel" id="mobileNavPanel" aria-hidden="true"><a href="#use-cases">Use cases</a><a href="#how">How it works</a><a href="#access">Access</a><a href="#buy">Pricing</a><a href="#faq">FAQ</a></div></div>
+    <a class="nav-buy" href="#buy"><span class="desktop-cta">Get your private edge →</span><span class="mobile-cta">Get Cheatly →</span></a>
   </header>
 
   <main id="top">
@@ -105,7 +107,7 @@
         <span class="eyebrow"><i></i> A private terminal for live work</span>
         <h1>Share your screen.<br><em>Keep your terminal private.</em></h1>
         <p>Nail your virtual interview, client call, or online retrospective with a private terminal beside the screen you share.</p>
-        <a class="button" data-buy href="https://rzp.io/rzp/cheatlyPro" target="_blank" rel="noopener">Pay securely <b>₹2,000</b></a>
+        <a class="button" href="#buy">See the private edge →</a>
       </div>
       <div class="demo-wrap">
         <div class="demo-label"><span class="pulse"></span> You see the terminal · They see your presentation</div>
@@ -120,7 +122,7 @@
     <section class="flap-demo shell">
       <div class="flap-heading"><div><span class="eyebrow">Drag to see the difference</span><h2>Your view<br><span class="vs-line">vs</span><br>what others see.</h2></div><p>Move the divider across the canvas. Your side includes the LLM terminal; the shared side shows the live call and presentation.</p></div>
       <div class="flap-player"><canvas id="flapCanvas" aria-label="Interactive comparison between the private terminal view and shared screen view"></canvas><div class="flap-hint">← drag the divider →</div></div>
-      <input id="flapSlider" class="flap-slider" type="range" min="18" max="82" value="54" aria-label="Compare your private view with the shared view">
+      <input id="flapSlider" class="flap-slider" type="range" min="18" max="82" value="50" aria-label="Compare your private view with the shared view">
       <div class="flap-labels"><span>YOUR VIEW · PRIVATE TERMINAL</span><span>SHARED VIEW · PRESENTATION</span></div>
     </section>
 
@@ -148,11 +150,11 @@
     </section>
 
     <section id="access" class="access shell">
-      <div class="access-heading"><div><span class="eyebrow">Get Cheatly</span><h2>Pay once.<br>Use it for life.</h2></div><p>Pay <strong>₹2,000 securely through Razorpay</strong> for lifetime access. Then send your payment proof and delivery email on Discord.</p></div>
-      <div class="payment-cta"><div><span class="eyebrow">Lifetime access · secure checkout</span><strong>₹2,000</strong><span>one-time payment · Apple Silicon Mac</span></div><a class="button" data-buy href="https://rzp.io/rzp/cheatlyPro" target="_blank" rel="noopener">Pay ₹2,000 securely →</a></div>
+      <div class="access-heading"><div><span class="eyebrow">Get Cheatly</span><h2>Pay once.<br>Use it for life.</h2></div><p>Get lifetime access through a secure checkout, then send your payment proof and delivery email on Discord.</p></div>
+      <div class="payment-cta"><div><span class="eyebrow">Lifetime access · secure checkout</span><strong>Ready when you are</strong><span>Apple Silicon Mac · one-time access</span></div><a class="button" href="#buy">See pricing →</a></div>
       <div class="access-visual"><canvas id="accessCanvas" aria-label="Three-step process: pay on Razorpay, send proof on Discord, and receive the downloadable file through WeTransfer"></canvas><div class="visual-caption"><span class="pulse"></span><span id="processCaption">Pay securely on Razorpay</span></div></div>
       <div class="access-details">
-        <div class="access-detail"><span class="step-icon">01</span><div><h3>Pay on Razorpay</h3><p>Complete the secure one-time payment of ₹2,000, then keep your payment confirmation.</p></div></div>
+        <div class="access-detail"><span class="step-icon">01</span><div><h3>Pay on Razorpay</h3><p>Complete the secure one-time payment, then keep your payment confirmation.</p></div></div>
         <div class="access-detail proof-step"><span class="step-icon">02</span><div><h3>Send proof on Discord</h3><p><a href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Send your payment screenshot</a> and delivery email in one message. We’ll take it from there.</p></div></div>
         <div class="access-detail"><span class="step-icon">03</span><div><h3>Get the downloadable file</h3><p>After approval, receive the zipped installer through a private WeTransfer link.</p></div></div>
       </div>
@@ -160,7 +162,7 @@
       <div class="support-note"><span>Need help?</span><p>Reach out to the Cheatly community for installation, payment, or bug support.</p><a class="support-button" href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Join Discord support →</a></div>
     </section>
 
-    <section id="buy" class="buy shell"><div><span class="eyebrow">60% off until 30 October</span><h2>Keep it close when<br>the screen is shared.</h2></div><div class="buy-right"><strong><del>₹5,000</del> ₹2,000</strong><small>one-time lifetime payment</small><a class="button" data-buy href="https://rzp.io/rzp/cheatlyPro" target="_blank" rel="noopener">Pay securely →</a></div></section>
+    <section id="buy" class="buy shell"><div><span class="eyebrow">One clear decision · 60% off until 30 October</span><h2>Keep your edge when<br>the screen is shared.</h2></div><div class="buy-right"><strong><del>₹5,000</del> ₹2,000</strong><small>one-time lifetime payment</small><a class="button" data-buy href="https://rzp.io/rzp/cheatlyPro" target="_blank" rel="noopener">Pay securely →</a></div></section>
     <section id="use-cases" class="use-cases shell" aria-labelledby="use-cases-title">
       <div class="use-cases-heading"><span class="eyebrow">Built for the moments that matter</span><h2 id="use-cases-title">More room to think.<br><em>More confidence to speak.</em></h2><p>Cheatly gives your live work a private layer—so you can stay prepared without losing the room.</p></div>
       <div class="use-cases-marquee" aria-label="Cheatly use cases">
@@ -176,16 +178,16 @@
         </div>
       </div>
     </section>
-    <section class="qr-cta shell"><div><span class="eyebrow">After payment</span><h2>Send proof.<br>Get support.</h2><p>Scan the code or join Discord to send your Razorpay screenshot, share your delivery email, and reach the Cheatly community.</p><a href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Open Discord support →</a></div><div class="qr-frame"><img src="discord-dm-qr.png" alt="QR code to open the Discord support community" width="156" height="156"><span>SCAN FOR SUPPORT</span></div></section>
     <section id="faq" class="faq shell">
       <div class="faq-heading"><span class="eyebrow">Questions, answered</span><h2>Before you<br>get started.</h2><p>Still unsure? Ask in Discord and we’ll help you choose the right setup.</p></div>
       <div class="faq-list">
         <details open><summary>What is Cheatly?</summary><p>Cheatly is a real PTY-powered terminal overlay for macOS. It gives you a private workspace while you share your screen.</p></details>
         <details><summary>Can I run AI LLM tools like Codex or Claude?</summary><p>Yes. You can run Codex, Claude, local LLM tools, git, scripts, and other command-line tools available in your Mac terminal.</p></details>
-        <details><summary>How do I receive Cheatly?</summary><p>Pay ₹2,000 through Razorpay, send the payment screenshot and your delivery email on Discord, then receive the zipped installer through a private WeTransfer link after approval.</p></details>
+        <details><summary>How do I receive Cheatly?</summary><p>Pay through Razorpay, send the payment screenshot and your delivery email on Discord, then receive the zipped installer through a private WeTransfer link after approval.</p></details>
         <details><summary>Which Macs are supported?</summary><p>The current release supports macOS 13 or later on Apple Silicon Macs.</p></details>
         <details><summary>What shortcuts does Cheatly have?</summary><p><kbd>⌘ M</kbd> toggles click-through mode, <kbd>⌘ N</kbd> shows or hides the overlay, and standard <kbd>⌘ C</kbd> and <kbd>⌘ V</kbd> copy and paste work in the terminal.</p></details>
         <details><summary>Which screen-sharing apps can I use?</summary><p>Cheatly is designed for supported capture paths in apps such as Teams, Zoom, Google Meet, and WhatsApp. Capture behavior can vary by app, call mode, and system settings, so test your setup before an important session.</p></details>
+        <details><summary>Is Cheatly meant for cheating in interviews?</summary><p><strong>No.</strong> Cheatly does not support cheating or deceptive use during interviews, exams, or professional calls. Ask your interviewer or meeting host for permission before using LLM tools, and follow their rules.</p></details>
         <details><summary>Is the purchase refundable?</summary><p>Because Cheatly is a downloadable digital product delivered after payment, purchases are <strong>non-refundable once delivery has been initiated</strong>. Review the requirements and test compatibility before purchasing. Contact Discord support for installation issues.</p></details>
       </div>
     </section>
