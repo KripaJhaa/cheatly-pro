@@ -239,6 +239,13 @@ flapCanvas.addEventListener('touchcancel', stopFlapDrag, { passive: true });
 flapSlider.addEventListener('input', () => { flapPosition = Number(flapSlider.value) / 100; drawFlap(); });
 window.addEventListener('resize', resizeFlapCanvas); resizeFlapCanvas(); drawFlap();
 
+// Returning home always restores the comparison to its clearest 50/50 starting point.
+document.querySelector('.brand')?.addEventListener('click', () => {
+  flapPosition = 0.5;
+  flapSlider.value = '50';
+  drawFlap();
+});
+
 const mobileNav = document.querySelector('.mobile-nav');
 const mobileNavToggle = document.getElementById('mobileNavToggle');
 const mobileNavPanel = document.getElementById('mobileNavPanel');
