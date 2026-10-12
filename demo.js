@@ -195,7 +195,8 @@ window.addEventListener('resize', resizeStoryCanvas); resizeStoryCanvas(); updat
 const flapCanvas = document.getElementById('flapCanvas');
 const flapCtx = flapCanvas.getContext('2d');
 const flapSlider = document.getElementById('flapSlider');
-let flapPosition = Number(flapSlider.value) / 100;
+flapSlider.value = '50';
+let flapPosition = 0.5;
 
 function resizeFlapCanvas() {
   const width = flapCanvas.parentElement.clientWidth;
