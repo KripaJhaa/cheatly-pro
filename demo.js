@@ -208,6 +208,7 @@ function resizeFlapCanvas() {
 function flapBox(x, y, width, height, radius, fill, stroke) { flapCtx.beginPath(); flapCtx.roundRect(x, y, width, height, radius); flapCtx.fillStyle = fill; flapCtx.fill(); if (stroke) { flapCtx.strokeStyle = stroke; flapCtx.stroke(); } }
 function drawFlap() {
   const w = flapCanvas.logicalWidth || flapCanvas.clientWidth, h = flapCanvas.logicalHeight || 280, split = w * flapPosition;
+  const compact = w < 480;
   flapCtx.clearRect(0, 0, w, h); flapCtx.fillStyle = '#dfe9df'; flapCtx.fillRect(0, 0, w, h);
   // Shared view: the presentation everyone else sees.
   flapCtx.save(); flapCtx.beginPath(); flapCtx.rect(0, 0, w, h); flapCtx.clip();
@@ -218,16 +219,23 @@ function drawFlap() {
   flapCtx.textAlign = 'left'; flapCtx.fillStyle = '#7c9680'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('You are presenting · microphone on', w * .11, h - 31); flapCtx.restore();
   // Private terminal view is clipped to the user's side of the flap.
   flapCtx.save(); flapCtx.beginPath(); flapCtx.rect(0, 0, split, h); flapCtx.clip(); flapCtx.fillStyle = '#172622'; flapCtx.fillRect(0, 0, split, h); flapCtx.fillStyle = '#2c463b'; flapCtx.fillRect(0, 0, split, 34); flapCtx.fillStyle = '#c1e681'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('YOUR VIEW · PRIVATE', 20, 21);
-  const tw = Math.max(130, Math.min(310, split - 32)), tx = Math.max(16, (split - tw) * .5), ty = 62; flapBox(tx, ty, tw, 142, 9, '#10201c'); flapCtx.fillStyle = '#284139'; flapCtx.fillRect(tx, ty, tw, 25); flapCtx.fillStyle = '#ef7569'; flapCtx.beginPath(); flapCtx.arc(tx + 14, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#e7be62'; flapCtx.beginPath(); flapCtx.arc(tx + 26, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#7ac366'; flapCtx.beginPath(); flapCtx.arc(tx + 38, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#9dcf83'; flapCtx.font = '9px DM Mono, monospace'; flapCtx.fillText('~/workspace', tx + 15, ty + 48); flapCtx.fillStyle = '#77d3c1'; flapCtx.fillText('$', tx + 84, ty + 48); flapCtx.fillStyle = '#d4e2d4'; flapCtx.fillText('codex', tx + 97, ty + 48); flapCtx.fillStyle = '#c1e681'; flapCtx.fillText('LLM QUERY', tx + 15, ty + 75); flapCtx.fillStyle = '#b8c9ba'; flapCtx.fillText('Design a scalable chat system', tx + 15, ty + 91); flapCtx.fillText('for 1M concurrent users.', tx + 15, ty + 105); flapCtx.fillStyle = '#83c8bc'; flapCtx.fillText('system design · thinking…', tx + 15, ty + 124); flapCtx.restore();
+  const tw = Math.max(130, Math.min(310, split - 24)), tx = Math.max(12, (split - tw) * .5), ty = 62; flapBox(tx, ty, tw, 142, 9, '#10201c'); flapCtx.fillStyle = '#284139'; flapCtx.fillRect(tx, ty, tw, 25); flapCtx.fillStyle = '#ef7569'; flapCtx.beginPath(); flapCtx.arc(tx + 14, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#e7be62'; flapCtx.beginPath(); flapCtx.arc(tx + 26, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#7ac366'; flapCtx.beginPath(); flapCtx.arc(tx + 38, ty + 12, 3, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#9dcf83'; flapCtx.font = `${compact ? 7 : 9}px DM Mono, monospace`; flapCtx.fillText(compact ? '~/work' : '~/workspace', tx + 15, ty + 48); flapCtx.fillStyle = '#77d3c1'; flapCtx.fillText('$', tx + (compact ? 55 : 84), ty + 48); flapCtx.fillStyle = '#d4e2d4'; flapCtx.fillText('codex', tx + (compact ? 66 : 97), ty + 48); flapCtx.fillStyle = '#c1e681'; flapCtx.fillText('LLM QUERY', tx + 15, ty + 75); flapCtx.fillStyle = '#b8c9ba'; flapCtx.fillText(compact ? 'System design…' : 'Design a scalable chat system', tx + 15, ty + 91); flapCtx.fillText(compact ? '1M users' : 'for 1M concurrent users.', tx + 15, ty + 105); flapCtx.fillStyle = '#83c8bc'; flapCtx.fillText(compact ? 'thinking…' : 'system design · thinking…', tx + 15, ty + 124); flapCtx.restore();
   // Flap handle and labels.
   flapCtx.fillStyle = '#c1e681'; flapCtx.fillRect(split - 2, 0, 4, h); flapCtx.fillStyle = '#c1e681'; flapCtx.beginPath(); flapCtx.arc(split, h * .5, 14, 0, Math.PI * 2); flapCtx.fill(); flapCtx.fillStyle = '#172622'; flapCtx.font = 'bold 13px Manrope, sans-serif'; flapCtx.textAlign = 'center'; flapCtx.fillText('↔', split, h * .5 + 5); flapCtx.textAlign = 'left';
 }
-function setFlapFromPointer(event) { const rect = flapCanvas.getBoundingClientRect(); flapPosition = Math.max(.18, Math.min(.82, (event.clientX - rect.left) / rect.width)); flapSlider.value = Math.round(flapPosition * 100); drawFlap(); }
+function pointerClientX(event) { if (typeof event.clientX === 'number') return event.clientX; const touch = event.touches?.[0] || event.changedTouches?.[0]; return touch ? touch.clientX : null; }
+function setFlapFromPointer(event) { const clientX = pointerClientX(event); if (clientX == null) return; const rect = flapCanvas.getBoundingClientRect(); flapPosition = Math.max(.18, Math.min(.82, (clientX - rect.left) / rect.width)); flapSlider.value = Math.round(flapPosition * 100); drawFlap(); }
 let flapDragging = false;
-flapCanvas.addEventListener('pointerdown', event => { flapDragging = true; flapCanvas.setPointerCapture(event.pointerId); setFlapFromPointer(event); });
+function stopFlapDrag(event) { flapDragging = false; if (event?.pointerId != null && flapCanvas.hasPointerCapture?.(event.pointerId)) flapCanvas.releasePointerCapture(event.pointerId); }
+flapCanvas.addEventListener('pointerdown', event => { event.preventDefault(); flapDragging = true; flapCanvas.setPointerCapture?.(event.pointerId); setFlapFromPointer(event); });
 flapCanvas.addEventListener('pointermove', event => { if (flapDragging) setFlapFromPointer(event); });
-flapCanvas.addEventListener('pointerup', event => { flapDragging = false; flapCanvas.releasePointerCapture(event.pointerId); });
-flapCanvas.addEventListener('pointercancel', () => { flapDragging = false; });
+flapCanvas.addEventListener('pointerup', stopFlapDrag);
+flapCanvas.addEventListener('pointercancel', stopFlapDrag);
+flapCanvas.addEventListener('lostpointercapture', () => { flapDragging = false; });
+flapCanvas.addEventListener('touchstart', event => { event.preventDefault(); flapDragging = true; setFlapFromPointer(event); }, { passive: false });
+flapCanvas.addEventListener('touchmove', event => { if (flapDragging) { event.preventDefault(); setFlapFromPointer(event); } }, { passive: false });
+flapCanvas.addEventListener('touchend', stopFlapDrag, { passive: true });
+flapCanvas.addEventListener('touchcancel', stopFlapDrag, { passive: true });
 flapSlider.addEventListener('input', () => { flapPosition = Number(flapSlider.value) / 100; drawFlap(); });
 window.addEventListener('resize', resizeFlapCanvas); resizeFlapCanvas(); drawFlap();
 
