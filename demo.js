@@ -246,6 +246,49 @@ document.querySelector('.brand')?.addEventListener('click', () => {
   drawFlap();
 });
 
+const blogCanvas = document.getElementById('blogCanvas');
+if (blogCanvas) {
+  const blogCtx = blogCanvas.getContext('2d');
+  function roundBlogBox(x, y, width, height, radius, fill, stroke) {
+    blogCtx.beginPath(); blogCtx.roundRect(x, y, width, height, radius); blogCtx.fillStyle = fill; blogCtx.fill();
+    if (stroke) { blogCtx.strokeStyle = stroke; blogCtx.stroke(); }
+  }
+  function blogText(text, x, y, size, color, align = 'left', weight = 500) {
+    blogCtx.fillStyle = color; blogCtx.font = `${weight} ${size}px ${size < 10 ? 'DM Mono' : 'Manrope'}, sans-serif`; blogCtx.textAlign = align; blogCtx.fillText(text, x, y);
+  }
+  function drawBlogCanvas() {
+    const width = blogCanvas.parentElement.clientWidth;
+    const height = Math.max(260, Math.min(390, width * .72));
+    const dpr = window.devicePixelRatio || 1;
+    blogCanvas.width = width * dpr; blogCanvas.height = height * dpr; blogCanvas.style.height = `${height}px`;
+    blogCtx.setTransform(dpr, 0, 0, dpr, 0, 0); blogCtx.clearRect(0, 0, width, height);
+    blogCtx.fillStyle = '#172622'; blogCtx.fillRect(0, 0, width, height);
+    const compact = width < 430;
+    blogText('ONE MAC · TWO VIEWS', 22, 27, 9, '#c1e681', 'left', 500);
+    blogText('What you keep nearby', width * .27, 58, compact ? 10 : 12, '#f3f7ee', 'center', 700);
+    blogText('What you choose to share', width * .73, 58, compact ? 10 : 12, '#f3f7ee', 'center', 700);
+    const gap = compact ? 12 : 20, left = 18, top = 76, boxWidth = (width - left * 2 - gap) / 2, boxHeight = height - top - 28;
+    roundBlogBox(left, top, boxWidth, boxHeight, 9, '#10201c', '#527260');
+    roundBlogBox(left + boxWidth + gap, top, boxWidth, boxHeight, 9, '#f1f5ed', '#c3d5c4');
+    const lx = left + 13, rx = left + boxWidth + gap + 13;
+    blogText('PRIVATE WORKSPACE', lx, top + 24, 8, '#c1e681');
+    blogText('SHARED SCREEN', rx, top + 24, 8, '#34775e');
+    blogCtx.fillStyle = '#284139'; blogCtx.fillRect(lx, top + 39, boxWidth - 26, 22);
+    blogCtx.fillStyle = '#ef7569'; blogCtx.beginPath(); blogCtx.arc(lx + 10, top + 50, 3, 0, Math.PI * 2); blogCtx.fill();
+    blogCtx.fillStyle = '#e7be62'; blogCtx.beginPath(); blogCtx.arc(lx + 21, top + 50, 3, 0, Math.PI * 2); blogCtx.fill();
+    blogText('$', lx, top + 86, 10, '#77d3c1'); blogText('codex', lx + 13, top + 86, 10, '#d4e2d4');
+    blogText(compact ? 'approved AI help' : 'approved AI help + notes', lx, top + 111, 9, '#c1e681');
+    blogText(compact ? 'your terminal' : 'your terminal commands', lx, top + 131, 9, '#b8c9ba');
+    blogCtx.fillStyle = '#d5e2d2'; blogCtx.fillRect(rx, top + 42, boxWidth - 26, 53);
+    blogCtx.fillStyle = '#aac0ad'; blogCtx.beginPath(); blogCtx.arc(rx + (boxWidth - 26) * .25, top + 68, 12, 0, Math.PI * 2); blogCtx.fill();
+    blogCtx.fillStyle = '#d4ae78'; blogCtx.beginPath(); blogCtx.arc(rx + (boxWidth - 26) * .58, top + 68, 12, 0, Math.PI * 2); blogCtx.fill();
+    blogCtx.fillStyle = '#a7b8c5'; blogCtx.beginPath(); blogCtx.arc(rx + (boxWidth - 26) * .82, top + 68, 12, 0, Math.PI * 2); blogCtx.fill();
+    blogText(compact ? 'call · demo · presentation' : 'call · demo · presentation', rx, top + 126, 8, '#607b69');
+    blogText('You decide what is shared', width / 2, height - 12, 9, '#c1e681', 'center');
+  }
+  window.addEventListener('resize', drawBlogCanvas); drawBlogCanvas();
+}
+
 const mobileNav = document.querySelector('.mobile-nav');
 const mobileNavToggle = document.getElementById('mobileNavToggle');
 const mobileNavPanel = document.getElementById('mobileNavPanel');
