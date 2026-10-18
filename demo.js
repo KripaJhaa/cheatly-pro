@@ -90,7 +90,7 @@ resizeCanvas(); updateControls(); requestAnimationFrame(draw);
 const accessCanvas = document.getElementById('accessCanvas');
 const accessCtx = accessCanvas.getContext('2d');
 const processCaption = document.getElementById('processCaption');
-const processSteps = ['Pay on Razorpay', 'Send proof on Discord', 'Receive the WeTransfer file'];
+const processSteps = ['Join the early-access list', 'We review your request', 'Installer sent by email'];
 let accessStartedAt = performance.now();
 
 function resizeAccessCanvas() {
