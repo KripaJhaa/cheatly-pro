@@ -111,10 +111,10 @@ function drawAccessProcess(now) {
   accessCtx.fillStyle = '#172622'; accessCtx.fillRect(0, 0, w, h);
   const left = Math.max(46, w * .1), right = Math.min(w - 46, w * .9), y = h * .48;
   accessCtx.strokeStyle = '#426454'; accessCtx.lineWidth = 2; accessCtx.beginPath(); accessCtx.moveTo(left, y); accessCtx.lineTo(right, y); accessCtx.stroke();
-  const labels = ['RAZORPAY', 'DISCORD', 'WETRANSFER'];
-  const icons = ['₹', '✓', '↗'];
+  const labels = ['JOIN LIST', 'REVIEW', 'EMAIL'];
+  const icons = ['✉', '✓', '↗'];
   const progress = (phase % 2) / 2;
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 3; i++) {
     const x = left + (right - left) * (i / 2);
     const isDone = i < active, isActive = i === active;
     accessCtx.fillStyle = isDone || isActive ? '#6aa579' : '#355247';
