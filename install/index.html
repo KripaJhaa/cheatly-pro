@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How to install, open, and run Cheatly on macOS, including steps for the unsigned test DMG.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://cheatly.pro/install/">
+  <link rel="stylesheet" href="../styles.css?v=15">
+  <link rel="icon" href="../cheatly.png" type="image/png">
+  <title>Install and Run Cheatly — Cheatly</title>
+</head>
+<body>
+  <header class="nav shell">
+    <a class="brand" href="../" aria-label="Cheatly home"><img class="brand-logo" src="../cheatly.png" alt="Cheatly logo"><span>Cheatly</span></a>
+    <a class="nav-buy" href="../">Back to Cheatly →</a>
+  </header>
+  <main>
+    <section class="article-page shell" aria-labelledby="install-title">
+      <a class="back-link" href="../">← Back to cheatly.pro</a>
+      <span class="eyebrow">Quick setup</span>
+      <h1 id="install-title">Install Cheatly.<br><em>Then keep it close.</em></h1>
+      <p class="article-intro">These steps are for the unsigned universal DMG. Cheatly works on macOS 13 or newer and includes Apple Silicon and Intel builds.</p>
+      <article class="article-copy">
+        <h2>1. Install the app</h2>
+        <ol>
+          <li>Open the <code>Cheatly-*.dmg</code> file from your email.</li>
+          <li>Drag <strong>Cheatly.app</strong> into the <strong>Applications</strong> folder.</li>
+          <li>Open Applications, then Control-click <strong>Cheatly</strong> and choose <strong>Open</strong>.</li>
+          <li>Choose <strong>Open</strong> again if macOS asks you to confirm.</li>
+        </ol>
+
+        <h2>If macOS still blocks it</h2>
+        <p>Open Terminal and run this once after copying Cheatly to Applications:</p>
+        <pre><code>xattr -dr com.apple.quarantine "/Applications/Cheatly.app"
+open -a "/Applications/Cheatly.app"</code></pre>
+        <p>This is needed because the current DMG is unsigned. A signed and notarized build will not require this step.</p>
+
+        <h2>2. Start using Cheatly</h2>
+        <ol>
+          <li>Cheatly stays in the macOS menu bar.</li>
+          <li>Click the Cheatly menu-bar icon to show or hide the terminal.</li>
+          <li>Keep the Mac online so trial or subscription access can be verified.</li>
+        </ol>
+
+        <h2>Shortcuts</h2>
+        <ul>
+          <li><kbd>⌘ N</kbd> — show or hide the terminal overlay</li>
+          <li><kbd>⌘ M</kbd> — switch between terminal interaction and click-through mode</li>
+          <li>Drag the header — move the overlay</li>
+          <li>Drag the bottom-right corner — resize the overlay</li>
+          <li><kbd>⌘ C</kbd> / <kbd>⌘ V</kbd> — copy and paste in the terminal</li>
+        </ul>
+
+        <h2>Having trouble?</h2>
+        <p>Check that you are on macOS 13 or newer, that the app was copied to Applications, and that your Mac is online. For help, join the <a href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Cheatly Discord community →</a></p>
+        <p>Use Cheatly only where the interviewer, meeting host, employer, client, school, or platform permits the tools you use. Ask for permission before using LLM tools in a live interview or assessment.</p>
+      </article>
+    </section>
+  </main>
+  <footer class="footer shell"><span>Cheatly · 2026</span><span>macOS 13+ · <a href="../tnc/">Terms &amp; Conditions</a></span></footer>
+</body>
+</html>
