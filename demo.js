@@ -195,8 +195,33 @@ window.addEventListener('resize', resizeStoryCanvas); resizeStoryCanvas(); updat
 const flapCanvas = document.getElementById('flapCanvas');
 const flapCtx = flapCanvas.getContext('2d');
 const flapSlider = document.getElementById('flapSlider');
-flapSlider.value = '50';
-let flapPosition = 0.5;
+const FLAP_DEFAULT_POSITION = 0.5;
+let flapPosition = FLAP_DEFAULT_POSITION;
+
+function resetFlapPosition() {
+  flapPosition = FLAP_DEFAULT_POSITION;
+  flapSlider.defaultValue = '50';
+  flapSlider.value = '50';
+}
+let flapAutoPlaying = false;
+let flapAutoFrame = 0;
+function startFlapAuto() {
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+  flapAutoPlaying = true;
+  cancelAnimationFrame(flapAutoFrame);
+  flapAutoFrame = requestAnimationFrame(animateFlap);
+}
+function stopFlapAuto() {
+  flapAutoPlaying = false;
+  cancelAnimationFrame(flapAutoFrame);
+}
+function animateFlap(time) {
+  if (!flapAutoPlaying) return;
+  flapPosition = FLAP_DEFAULT_POSITION + Math.sin(time / 1800) * 0.32;
+  flapSlider.value = String(Math.round(flapPosition * 100));
+  drawFlap();
+  flapAutoFrame = requestAnimationFrame(animateFlap);
+}
 
 function resizeFlapCanvas() {
   const width = flapCanvas.parentElement.clientWidth;
@@ -227,24 +252,24 @@ function pointerClientX(event) { if (typeof event.clientX === 'number') return e
 function setFlapFromPointer(event) { const clientX = pointerClientX(event); if (clientX == null) return; const rect = flapCanvas.getBoundingClientRect(); flapPosition = Math.max(.18, Math.min(.82, (clientX - rect.left) / rect.width)); flapSlider.value = Math.round(flapPosition * 100); drawFlap(); }
 let flapDragging = false;
 function stopFlapDrag(event) { flapDragging = false; if (event?.pointerId != null && flapCanvas.hasPointerCapture?.(event.pointerId)) flapCanvas.releasePointerCapture(event.pointerId); }
-flapCanvas.addEventListener('pointerdown', event => { event.preventDefault(); flapDragging = true; flapCanvas.setPointerCapture?.(event.pointerId); setFlapFromPointer(event); });
+flapCanvas.addEventListener('pointerdown', event => { event.preventDefault(); stopFlapAuto(); flapDragging = true; flapCanvas.setPointerCapture?.(event.pointerId); setFlapFromPointer(event); });
 flapCanvas.addEventListener('pointermove', event => { if (flapDragging) setFlapFromPointer(event); });
 flapCanvas.addEventListener('pointerup', stopFlapDrag);
 flapCanvas.addEventListener('pointercancel', stopFlapDrag);
 flapCanvas.addEventListener('lostpointercapture', () => { flapDragging = false; });
-flapCanvas.addEventListener('touchstart', event => { event.preventDefault(); flapDragging = true; setFlapFromPointer(event); }, { passive: false });
+flapCanvas.addEventListener('touchstart', event => { event.preventDefault(); stopFlapAuto(); flapDragging = true; setFlapFromPointer(event); }, { passive: false });
 flapCanvas.addEventListener('touchmove', event => { if (flapDragging) { event.preventDefault(); setFlapFromPointer(event); } }, { passive: false });
 flapCanvas.addEventListener('touchend', stopFlapDrag, { passive: true });
 flapCanvas.addEventListener('touchcancel', stopFlapDrag, { passive: true });
-flapSlider.addEventListener('input', () => { flapPosition = Number(flapSlider.value) / 100; drawFlap(); });
-window.addEventListener('resize', resizeFlapCanvas); resizeFlapCanvas(); drawFlap();
+flapSlider.addEventListener('input', () => { stopFlapAuto(); flapPosition = Number(flapSlider.value) / 100; drawFlap(); });
+window.addEventListener('resize', resizeFlapCanvas); resizeFlapCanvas(); resetFlapPosition(); drawFlap(); startFlapAuto();
+
+// Browsers may restore range-input state after a reload or back/forward navigation.
+// Re-apply the intentional 50/50 starting point after that restoration step.
+window.addEventListener('pageshow', () => { resetFlapPosition(); drawFlap(); startFlapAuto(); });
 
 // Returning home always restores the comparison to its clearest 50/50 starting point.
-document.querySelector('.brand')?.addEventListener('click', () => {
-  flapPosition = 0.5;
-  flapSlider.value = '50';
-  drawFlap();
-});
+document.querySelector('.brand')?.addEventListener('click', () => { resetFlapPosition(); drawFlap(); startFlapAuto(); });
 
 const blogCanvas = document.getElementById('blogCanvas');
 if (blogCanvas) {
