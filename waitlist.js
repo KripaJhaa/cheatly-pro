@@ -20,10 +20,13 @@
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Could not save your interest');
       status.className = 'form-status is-success';
-      status.textContent = 'You’re on the list. We’ll email you when the installer is ready.';
+      status.textContent = 'You’re on the early-access list. We’ll email you if approved; the seven-day trial starts after approval.';
       form.reset();
-      if (window.gtag) window.gtag('event', 'join_early_access', { method: 'website_form' });
-      if (window.mixpanel) window.mixpanel.track('join_early_access', { method: 'website_form' });
+      const trackingParams = { method: 'website_form' };
+      if (window.cheatlyTrack) {
+        window.cheatlyTrack('generate_lead', trackingParams);
+        window.cheatlyTrack('join_early_access', trackingParams);
+      }
     } catch (error) {
       status.className = 'form-status is-error';
       status.textContent = error.message || 'Something went wrong. Please try again.';
