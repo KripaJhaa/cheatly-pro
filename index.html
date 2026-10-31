@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cheatly is a focused private workspace for Mac screen sharing. Keep your terminal, notes, and permitted AI-assisted work close while you share a selected screen.">
+  <meta name="description" content="Cheatly is a private terminal overlay for Mac screen sharing. Keep notes, Codex, Claude, and permitted LLM tools close during video calls while you share only the selected window.">
   <meta name="keywords" content="private workspace for Mac screen sharing, macOS screen sharing terminal, AI workspace macOS, private terminal workspace, Codex terminal, Claude terminal">
   <meta name="author" content="Cheatly">
   <meta name="application-name" content="Cheatly">
@@ -13,8 +13,8 @@
   <link rel="canonical" href="https://cheatly.pro/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cheatly">
-  <meta property="og:title" content="Cheatly — A focused private workspace for Mac screen sharing">
-  <meta property="og:description" content="Keep your terminal, notes, and permitted AI-assisted work close while you share a selected screen. Register to try Cheatly.">
+  <meta property="og:title" content="Cheatly — Private terminal overlay for Mac screen sharing">
+  <meta property="og:description" content="Keep notes, Codex, Claude, and permitted LLM tools close during video calls while your audience sees only the screen or window you choose to share.">
   <meta property="og:image" content="https://cheatly.pro/cheatly.png">
   <meta property="og:image:alt" content="Cheatly terminal logo">
   <meta property="og:image:type" content="image/png">
@@ -23,11 +23,11 @@
   <meta property="og:locale" content="en_IN">
   <meta property="og:url" content="https://cheatly.pro/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Cheatly — A focused private workspace for Mac screen sharing">
-  <meta name="twitter:description" content="Keep your terminal, notes, and permitted AI-assisted work close while you share a selected screen. Register to try Cheatly.">
+  <meta name="twitter:title" content="Cheatly — Private terminal overlay for Mac screen sharing">
+  <meta name="twitter:description" content="Keep notes, Codex, Claude, and permitted LLM tools close during video calls while your audience sees only the screen or window you choose to share.">
   <meta name="twitter:image" content="https://cheatly.pro/cheatly.png">
   <meta name="twitter:image:alt" content="Cheatly terminal logo">
-  <title>Cheatly — Private workspace for Mac screen sharing</title>
+  <title>Private Terminal Overlay for Mac Screen Sharing | Cheatly</title>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +38,7 @@
         "alternateName": "Cheatly Terminal",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS 13 or later",
-        "description": "A focused private workspace for Mac screen sharing.",
+        "description": "A private terminal overlay for Mac screen sharing that keeps notes, commands, and permitted LLM tools close while you share a selected screen.",
         "isAccessibleForFree": true,
         "url": "https://cheatly.pro/",
         "brand": {"@type":"Brand","name":"Cheatly"},
@@ -49,7 +49,7 @@
         "@type": "WebSite",
         "name": "Cheatly",
         "url": "https://cheatly.pro/",
-        "description": "A private terminal workspace for macOS screen sharing."
+        "description": "A private terminal overlay for macOS screen sharing."
       },
       {
         "@type": "Organization",
@@ -113,13 +113,13 @@
   <main id="top">
     <section class="hero shell">
       <div class="hero-copy">
-        <span class="eyebrow"><i></i> A focused private workspace for Mac screen sharing.</span>
-        <h1>Share your screen.<br><em>Keep your workspace focused.</em></h1>
-        <p>Keep your terminal, notes, and permitted AI-assisted work close while you share a selected screen in a supported capture setup.</p>
+        <span class="eyebrow"><i></i> A private terminal overlay for Mac screen sharing.</span>
+        <h1><span class="hero-title-main">Nervous while</span><br><em>screen sharing?</em></h1>
+        <p>Run <strong>Codex, Claude, or Copilot</strong> in a private terminal.</p>
         <a class="button" href="#join">Register to get the installer →</a>
       </div>
       <div class="demo-wrap">
-        <div class="demo-label"><span class="pulse"></span> Supported setup · private workspace beside a selected share</div>
+        <div class="demo-label"><span class="pulse"></span> Supported setup · private terminal beside your selected share</div>
         <div class="demo-card"><canvas id="demoCanvas" aria-label="Interactive animation showing a private terminal over a shared screen"></canvas></div>
         <div class="demo-controls">
           <button id="modeButton" type="button"><span>⌘M</span> Click-through</button>
@@ -128,26 +128,42 @@
       </div>
     </section>
 
+    <section class="shh-section shell" aria-labelledby="shh-title">
+      <div class="shh-copy">
+        <span class="eyebrow"><i></i> Keep it private</span>
+        <h2 id="shh-title">Ssshhh.<br><em>No one can see it.</em></h2>
+        <p>Keep your terminal and AI tools private while you share the screen you choose.</p>
+      </div>
+      <div class="shh-visual"><img src="assets/shh-private-terminal.png" alt="Person making a shushing gesture while using a laptop" loading="lazy"></div>
+    </section>
+
     <section id="real-demo" class="proof-video shell" aria-labelledby="real-demo-title">
       <div class="proof-video-heading">
         <span class="eyebrow">See a real setup</span>
         <h2 id="real-demo-title">Proof in<br><em>under 30 seconds.</em></h2>
-        <p>A matched screen recording from macOS: the first-person private user view beside the third-person audience view, showing the overlay over Chrome and the selected shared window.</p>
+        <p>See the private user view and audience view from one supported setup.</p>
       </div>
-      <div class="proof-video-player">
-        <video controls preload="metadata" poster="assets/cheatly-real-demo-poster.png" aria-label="20 to 30 second screen recording of Cheatly beside a supported Mac screen-sharing setup">
-          <source src="assets/cheatly-real-demo.mp4" type="video/mp4">
-          <p class="proof-video-fallback">The 20-second usage demo pairs the first-person private user recording with the final 9 seconds of the third-person audience recording. It shows the overlay over Chrome, the selected shared window, and why capture behavior must be tested for each app and path. Add <code>assets/cheatly-real-demo.mp4</code> to play it here.</p>
-        </video>
+      <div class="proof-video-wrap">
+        <picture class="proof-video-guide" aria-hidden="true">
+          <source media="(max-width: 800px)" srcset="assets/proof-guide-down.png">
+          <img src="assets/proof-guide-right.png" alt="">
+        </picture>
+        <div class="proof-video-player">
+          <video controls preload="metadata" poster="assets/cheatly-real-demo-poster.png" aria-label="20 to 30 second screen recording of Cheatly beside a supported Mac screen-sharing setup">
+            <source src="assets/cheatly-real-demo.mp4" type="video/mp4">
+            <p class="proof-video-fallback">The 20-second usage demo pairs the first-person private user recording with the final 9 seconds of the third-person audience recording. It shows the overlay over Chrome, the selected shared window, and why capture behavior must be tested for each app and path. Add <code>assets/cheatly-real-demo.mp4</code> to play it here.</p>
+          </video>
+        </div>
       </div>
       <p class="proof-video-note"><strong>Supported setup — test your exact capture path before an important call.</strong> Recorded example: macOS + Chrome with the Presenter Notes overlay. Capture behavior can differ in Google Meet, Zoom, Teams, or other apps depending on the app, call mode, selected capture path, and system settings; Cheatly does not claim universal invisibility or guaranteed compatibility.</p>
     </section>
 
     <section class="flap-demo shell">
-      <div class="flap-heading"><div><span class="eyebrow">Compare a supported setup</span><h2>Your view<br><span class="vs-line">vs</span><br>a selected share.</h2></div><p>Move the divider across the canvas to compare the private user workspace with a selected shared screen. Test your exact capture path before an important session.</p></div>
+      <div class="flap-heading"><div><span class="eyebrow">Compare a supported setup</span><h2><span>Your view</span><span class="vs-line">vs.</span><span>their screen.</span></h2></div><p>Compare your view with the screen others see. Test your setup first.</p></div>
       <div class="flap-player"><canvas id="flapCanvas" aria-label="Interactive comparison between the private terminal view and shared screen view"></canvas><div class="flap-hint">← drag or slide →</div></div>
+      <div class="flap-slider-cue" aria-hidden="true"><span>Drag the divider</span><b>↓</b></div>
       <input id="flapSlider" class="flap-slider" type="range" min="18" max="82" value="50" aria-label="Compare your private view with the shared view">
-      <div class="flap-labels"><span>YOUR VIEW · PRIVATE TERMINAL</span><span>SHARED VIEW · PRESENTATION</span></div>
+      <div class="flap-labels"><span>YOUR VIEW · PRIVATE TERMINAL</span><span>THEIR SCREEN · SHARED VIEW</span></div>
     </section>
 
     <section id="features" class="shortcuts shell">
@@ -165,65 +181,64 @@
 
     <section id="compatibility" class="compatibility shell" aria-labelledby="compatibility-title">
       <div class="compatibility-heading">
-        <div><span class="eyebrow">Check your setup</span><h2 id="compatibility-title">Built for the<br><em>apps you already use.</em></h2></div>
-        <p>Cheatly works with supported Mac screen-sharing setups. Results can vary by app, call mode, and system settings—test your setup before an important session.</p>
+        <div><span class="eyebrow">Your tools, your view</span><h2 id="compatibility-title">Tools you can<br><em>run or test.</em></h2></div>
+        <p>Run your preferred terminal tools, then test your screen-sharing setup in the apps you use.</p>
       </div>
-      <div class="compatibility-marquee" aria-label="Apps Cheatly can be tested with">
-        <div class="compatibility-track">
-          <span><img src="https://cdn.simpleicons.org/discord/b9d8ba" alt="">Discord</span>
-          <span><img src="https://cdn.simpleicons.org/zoom/b9d8ba" alt="">Zoom</span>
-          <span><img src="https://cdn.simpleicons.org/amazonchime/b9d8ba" alt="">Chime</span>
-          <span><img src="https://cdn.simpleicons.org/microsoftteams/b9d8ba" alt="">Teams</span>
-          <span><img src="https://cdn.simpleicons.org/googlemeet/b9d8ba" alt="">Google Meet</span>
-          <span><img src="https://cdn.simpleicons.org/coderpad/b9d8ba" alt="">CoderPad</span>
-          <span><img src="https://cdn.simpleicons.org/codesignal/b9d8ba" alt="">CodeSignal</span>
-          <span><img src="https://cdn.simpleicons.org/hackerrank/b9d8ba" alt="">HackerRank</span>
-          <span><img src="https://cdn.simpleicons.org/discord/b9d8ba" alt="">Discord</span>
-          <span><img src="https://cdn.simpleicons.org/zoom/b9d8ba" alt="">Zoom</span>
-          <span><img src="https://cdn.simpleicons.org/amazonchime/b9d8ba" alt="">Chime</span>
-          <span><img src="https://cdn.simpleicons.org/microsoftteams/b9d8ba" alt="">Teams</span>
-          <span><img src="https://cdn.simpleicons.org/googlemeet/b9d8ba" alt="">Google Meet</span>
-          <span><img src="https://cdn.simpleicons.org/coderpad/b9d8ba" alt="">CoderPad</span>
-          <span><img src="https://cdn.simpleicons.org/codesignal/b9d8ba" alt="">CodeSignal</span>
-          <span><img src="https://cdn.simpleicons.org/hackerrank/b9d8ba" alt="">HackerRank</span>
+      <div class="swipe-showcase" aria-label="Tools you can run and apps you can test with Cheatly">
+        <div class="swipe-guide"><img src="assets/swipe-guide.png" alt="Excited professional swiping through a stack of tools" loading="lazy"></div>
+        <div class="swipe-deck-wrap">
+          <div class="swipe-deck" id="swipeDeck" aria-live="polite">
+            <article class="swipe-card"><span class="swipe-card-mark">C</span><small>AI terminal</small><strong>Codex</strong><p>Run it privately beside your shared screen.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">C</span><small>AI terminal</small><strong>Claude</strong><p>Keep prompts and answers close when permitted.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">C</span><small>AI coding</small><strong>Copilot</strong><p>Use your preferred tools in one private view.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">Z</span><small>Video calls</small><strong>Zoom</strong><p>Share only the window or screen you choose.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">M</span><small>Video calls</small><strong>Google Meet</strong><p>Test your selected capture path before a call.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">T</span><small>Video calls</small><strong>Teams</strong><p>Keep your private workspace close to the conversation.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">C</span><small>Video calls</small><strong>Chime</strong><p>Test the screen-sharing path before you begin.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">D</span><small>Calls and communities</small><strong>Discord</strong><p>Keep your tools ready while you stay present.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">C</span><small>Technical sessions</small><strong>CoderPad</strong><p>Use supported setups for focused technical work.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">C</span><small>Assessments</small><strong>CodeSignal</strong><p>Follow the rules for every live assessment.</p></article>
+            <article class="swipe-card"><span class="swipe-card-mark">H</span><small>Coding sessions</small><strong>HackerRank</strong><p>Test compatibility before an important session.</p></article>
+          </div>
+          <p class="swipe-caption"><span class="pulse"></span> Tools to run · apps to test</p>
         </div>
       </div>
     </section>
 
     <section id="how" class="how-it-works shell">
-      <div class="how-intro"><span class="eyebrow">How it helps</span><h2>Stay ready<br>for the moment.</h2><p>Open Cheatly before the call. Keep your terminal, AI tools, and notes close while everyone else sees the screen you choose to share.</p></div>
+      <div class="how-intro"><span class="eyebrow">How it helps</span><h2>Stay ready<br>for the moment.</h2><p>Keep your terminal, AI tools, and notes close while others see only your selected screen.</p></div>
       <div class="how-grid">
-        <article class="how-card"><span>01</span><h3>Before a live session</h3><p>Keep your notes, terminal, and permitted tools close while you prepare for the conversation.</p></article>
-        <article class="how-card"><span>02</span><h3>During the client call</h3><p>Check a command, shape an answer, or pull up the right detail without leaving the conversation.</p></article>
-        <article class="how-card"><span>03</span><h3>Inside the online retro</h3><p>Capture ideas, test a thought, and keep the discussion moving without changing windows.</p></article>
-        <article class="how-card"><span>04</span><h3>When you need a reset</h3><p>Press <kbd>⌘ N</kbd> to hide the layer or <kbd>⌘ M</kbd> to interact with the screen underneath.</p></article>
+        <article class="how-card"><span>01</span><h3>Before a live session</h3><p>Prepare with notes and permitted tools close.</p></article>
+        <article class="how-card"><span>02</span><h3>During the client call</h3><p>Check a command without leaving the call.</p></article>
+        <article class="how-card"><span>03</span><h3>Inside the online retro</h3><p>Capture ideas without changing windows.</p></article>
+        <article class="how-card"><span>04</span><h3>When you need a reset</h3><p><kbd>⌘ N</kbd> hides the layer. <kbd>⌘ M</kbd> passes clicks through.</p></article>
       </div>
     </section>
 
     <section id="access" class="access shell">
-      <div class="access-heading"><div><span class="eyebrow">Get started in minutes</span><h2>Register once.<br><em>Try Cheatly free.</em></h2></div><p>Register with your email and we’ll send the installer link. Try Cheatly for <strong>7 days</strong>, then choose a plan to keep your workspace active.</p></div>
+      <div class="access-heading"><div><span class="eyebrow">Get started in minutes</span><h2>Register once.<br><em>Try Cheatly free.</em></h2></div><p>Register to get the installer link. Try Cheatly free for <strong>7 days</strong>, then choose a plan.</p><div class="access-guide"><img src="assets/access-guide.png" alt="Illustrated guide holding an installer envelope and pointing to the registration steps" loading="lazy"></div></div>
       <div class="access-visual"><canvas id="accessCanvas" aria-label="Three-step process: register, receive the installer link, and try Cheatly"></canvas><div class="visual-caption"><span class="pulse"></span><span id="processCaption">Register to try Cheatly</span></div></div>
       <div class="access-details">
-        <div class="access-detail"><span class="step-icon">01</span><div><h3>Register</h3><p>Tell us where to send your installer link and product updates.</p></div></div>
-        <div class="access-detail"><span class="step-icon">02</span><div><h3>Get your installer link</h3><p>We’ll email the link and simple setup instructions to you.</p></div></div>
-        <div class="access-detail"><span class="step-icon">03</span><div><h3>Try, then subscribe</h3><p>Use the <strong>7-day trial</strong>, then choose a plan when you’re ready to continue.</p></div></div>
+        <div class="access-detail"><span class="step-icon">01</span><div><h3>Register</h3><p>Tell us where to send your installer link.</p></div></div>
+        <div class="access-detail"><span class="step-icon">02</span><div><h3>Get your installer link</h3><p>We’ll email the link and setup steps.</p></div></div>
+        <div class="access-detail"><span class="step-icon">03</span><div><h3>Try, then subscribe</h3><p>Use the <strong>7-day trial</strong>, then choose a plan.</p></div></div>
       </div>
       <div class="install-note"><span class="eyebrow">After registration</span><div><p>Open the installer link from your email and follow the setup steps. Try Cheatly on your Mac during the <strong>7-day trial</strong>, then choose a plan to continue using it.</p><p>Your installer link is private and intended for your registered email address.</p></div></div>
-      <div class="support-note"><span>Questions?</span><p>Reach out to the Cheatly community if you need help getting started.</p><a class="support-button" href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Join Discord →</a></div>
+      <div class="support-note"><span>Questions?</span><p>Get help from the Cheatly community.</p><a class="support-button" href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Join Discord →</a></div>
     </section>
     <section id="join" class="join shell" aria-labelledby="join-title"><div class="join-copy"><span class="eyebrow">Register to get started</span><h2 id="join-title">Get the installer.<br><em>Try Cheatly free.</em></h2><p>Enter your email and we’ll send your installer link and setup instructions. Try Cheatly for <strong>7 days</strong>, then choose a plan to continue.</p></div><form class="interest-form" id="interestForm"><div class="form-heading"><strong>Register to get the installer</strong><span>No payment today. Your <strong>7-day trial</strong> comes first.</span></div><label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label><label><span class="field-label">Mobile number <span class="optional">(optional)</span></span><input name="mobile" type="tel" autocomplete="tel" placeholder="+91 98765 43210"></label><label class="consent"><input name="consent" type="checkbox" required><span>I agree to receive the installer link and Cheatly updates.</span></label><button class="button" type="submit">Register and get installer <b>→</b></button><p class="form-status" id="interestStatus" role="status" aria-live="polite"></p></form></section>
     <section id="use-cases" class="use-cases shell" aria-labelledby="use-cases-title">
-      <div class="use-cases-heading"><span class="eyebrow">Built for the moments that matter</span><h2 id="use-cases-title">More room to think.<br><em>More confidence to speak.</em></h2><p>Cheatly gives your live work a private layer—so you can stay prepared without losing the room.</p></div>
+      <div class="use-cases-heading"><span class="eyebrow">Built for the moments that matter</span><h2 id="use-cases-title">More room to think.<br><em>More confidence to speak.</em></h2><p>A private layer for staying prepared during live work.</p></div>
       <div class="use-cases-marquee" aria-label="Cheatly use cases">
         <div class="use-cases-track">
-          <article><span>01</span><strong>Mac screen sharing</strong><p>Keep a focused private workspace beside the screen you choose to share.</p></article>
-          <article><span>02</span><strong>Client calls</strong><p>Check the detail you need and keep your explanation clear and calm.</p></article>
-          <article><span>03</span><strong>Online retros</strong><p>Capture ideas, test a thought, and keep the discussion moving.</p></article>
-          <article><span>04</span><strong>Interview preparation</strong><p>Prepare with Codex, Claude, local LLMs, and your terminal when those tools are permitted.</p></article>
-          <article><span>01</span><strong>Mac screen sharing</strong><p>Keep a focused private workspace beside the screen you choose to share.</p></article>
-          <article><span>02</span><strong>Client calls</strong><p>Check the detail you need and keep your explanation clear and calm.</p></article>
-          <article><span>03</span><strong>Online retros</strong><p>Capture ideas, test a thought, and keep the discussion moving.</p></article>
-          <article><span>04</span><strong>Interview preparation</strong><p>Prepare with Codex, Claude, local LLMs, and your terminal when those tools are permitted.</p></article>
+          <article><span>01</span><strong>Mac screen sharing</strong><p>Keep your private terminal close.</p></article>
+          <article><span>02</span><strong>Client calls</strong><p>Stay prepared without leaving the call.</p></article>
+          <article><span>03</span><strong>Online retros</strong><p>Capture ideas as the conversation moves.</p></article>
+          <article><span>04</span><strong>Interview preparation</strong><p>Use Codex, Claude, and local LLMs when permitted.</p></article>
+          <article><span>01</span><strong>Mac screen sharing</strong><p>Keep your private terminal close.</p></article>
+          <article><span>02</span><strong>Client calls</strong><p>Stay prepared without leaving the call.</p></article>
+          <article><span>03</span><strong>Online retros</strong><p>Capture ideas as the conversation moves.</p></article>
+          <article><span>04</span><strong>Interview preparation</strong><p>Use Codex, Claude, and local LLMs when permitted.</p></article>
         </div>
       </div>
     </section>
@@ -254,5 +269,31 @@
   <script src="analytics.js?v=4"></script>
   <script src="waitlist.js?v=2"></script>
   <script src="demo.js?v=14"></script>
+  <script>
+    (() => {
+      const deck = document.getElementById('swipeDeck');
+      if (!deck) return;
+      const cards = [...deck.querySelectorAll('.swipe-card')];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = 0;
+      let timer;
+      function renderDeck() {
+        cards.forEach((card, index) => {
+          const position = (index - current + cards.length) % cards.length;
+          card.classList.remove('is-front', 'is-next', 'is-third', 'is-hidden', 'is-swiping');
+          card.classList.add(position === 0 ? 'is-front' : position === 1 ? 'is-next' : position === 2 ? 'is-third' : 'is-hidden');
+        });
+      }
+      function swipeNext() {
+        const front = cards[current];
+        front.classList.add('is-swiping');
+        window.setTimeout(() => { current = (current + 1) % cards.length; renderDeck(); }, 650);
+      }
+      renderDeck();
+      if (!reducedMotion) timer = window.setInterval(swipeNext, 2800);
+      deck.addEventListener('mouseenter', () => { if (timer) window.clearInterval(timer); });
+      deck.addEventListener('mouseleave', () => { if (!reducedMotion && !timer) timer = window.setInterval(swipeNext, 2800); });
+    })();
+  </script>
 </body>
 </html>
