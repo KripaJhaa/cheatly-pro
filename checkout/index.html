@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Choose your Cheatly plan</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    :root{color-scheme:light}*{box-sizing:border-box}body{margin:0;display:grid;place-items:center;min-height:100vh;padding:24px;background:#f7f6f0;color:#172622;font:16px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.card{width:min(720px,100%);padding:34px;border:1px solid #dce1d9;border-radius:20px;background:#fffdf8;box-shadow:0 18px 50px #17262218}.checkout-top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:42px}.brand{display:inline-flex;align-items:center;gap:10px;color:#172622;font-weight:800;text-decoration:none}.brand img{width:30px;height:30px;border-radius:9px}.back-link{color:#34775e;font-size:13px;text-decoration:none}.back-link:hover{text-decoration:underline}.checkout-kicker{display:flex;align-items:center;gap:7px;margin:0 0 12px;color:#34775e;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.checkout-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#76b875;box-shadow:0 0 0 4px #76b87522}h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px);letter-spacing:-.04em}p{color:#718079;line-height:1.55}.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:26px 0}.plan{display:flex;flex-direction:column;padding:22px;border:1px solid #dce1d9;border-radius:14px;background:#f7f6f0}.plan h2{margin:0 0 7px;font-size:20px}.plan ul{display:grid;gap:6px;margin:14px 0 18px;padding-left:18px;color:#718079;font-size:13px;line-height:1.45}.plan li::marker{color:#34775e}.plan strong{display:block;margin:auto 0 14px;font-size:25px}.plan button{width:100%;padding:12px;border:0;border-radius:9px;color:#fff;background:#172622;font-weight:700;font-size:15px;cursor:pointer}.plan button:disabled{opacity:.5;cursor:wait}#message{min-height:24px;color:#34775e}.checkout-trust{margin:22px 0 0;padding:14px 16px;border:1px solid #dce8d8;border-radius:10px;color:#718079;background:#f1f7ee;font-size:12px;line-height:1.5}.checkout-trust strong{color:#172622}.small{font-size:13px}.receipt[hidden]{display:none}.receipt-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:7px 10px;border-radius:999px;color:#287a4f;background:#e8f4e3;font-size:11px;font-weight:800}.receipt-badge::before{content:"✓";display:grid;place-items:center;width:17px;height:17px;border-radius:50%;color:#fff;background:#287a4f}.receipt h1{margin-bottom:12px}.receipt-intro{max-width:500px;margin:0 0 26px}.receipt-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin:0;border:1px solid #dce1d9;border-radius:12px;overflow:hidden;background:#dce1d9}.receipt-details div{display:grid;gap:5px;padding:15px 16px;background:#fffdf8}.receipt-details dt{color:#718079;font-size:11px}.receipt-details dd{margin:0;color:#172622;font-size:15px;font-weight:800;overflow-wrap:anywhere}.receipt-note{margin:20px 0 0;padding:15px 16px;border-radius:10px;color:#718079;background:#f1f7ee;font-size:12px;line-height:1.55}.receipt-actions{display:flex;align-items:center;gap:18px;margin-top:24px}.receipt-actions button{padding:12px 15px;border:0;border-radius:8px;color:#fff;background:#172622;font:700 13px system-ui,sans-serif;cursor:pointer}.receipt-actions button:hover{background:#34775e}.site-footer{width:min(720px,100%);padding:16px 4px 0;color:#718079;font-size:12px;text-align:center}.site-footer a{color:#34775e;text-decoration:none}.site-footer a:hover{text-decoration:underline}@media(max-width:560px){.plans{grid-template-columns:1fr}.card{padding:24px}.checkout-top{margin-bottom:32px}.receipt-details{grid-template-columns:1fr}.receipt-actions{align-items:stretch;flex-direction:column}.receipt-actions button{width:100%}}@media print{body{display:block;padding:0;background:#fff}.card{width:100%;border:0;box-shadow:none}.checkout-top,.site-footer{display:none}.receipt-actions{display:none}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="checkout-top"><a class="brand" href="../" aria-label="Back to Cheatly website"><img src="../cheatly.png" alt="Cheatly logo"><span>Cheatly</span></a><a class="back-link" href="../">← Back to website</a></div>
+    <div id="checkoutContent">
+      <p class="checkout-kicker">Official Cheatly checkout</p>
+      <h1>Keep your private workspace active.</h1>
+      <p>Try Cheatly on your Mac first. When you’re ready, choose a plan to continue using your private workspace.</p>
+      <section id="plans" class="plans" aria-label="Cheatly plans"></section>
+      <p id="message" role="status" aria-live="polite">Loading plans…</p>
+      <p class="small">Choose monthly, annual, or lifetime access when you’re ready. Payment is handled securely through Razorpay Checkout, with available methods shown at payment.</p>
+      <p class="checkout-trust"><strong>Your access is linked to this registration.</strong> After payment is confirmed, we’ll send the next steps to your registered email. Need help? <a class="back-link" href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Contact Cheatly support →</a></p>
+    </div>
+    <section id="receipt" class="receipt" hidden aria-labelledby="receipt-title">
+      <div class="receipt-badge">Payment confirmed</div>
+      <h1 id="receipt-title">You’re all set.</h1>
+      <p class="receipt-intro">Your Cheatly access is active. Save this confirmation for your records—the installer and next steps will be sent to your registered email.</p>
+      <dl class="receipt-details">
+        <div><dt>Plan</dt><dd id="receiptPlan">—</dd></div>
+        <div><dt>Amount collected</dt><dd id="receiptAmount">—</dd></div>
+        <div><dt>Paid on</dt><dd id="receiptDate">—</dd></div>
+        <div><dt>Payment reference</dt><dd id="receiptPayment">—</dd></div>
+        <div><dt>Access</dt><dd id="receiptAccess">—</dd></div>
+      </dl>
+      <p class="receipt-note"><strong>Keep this page as your payment confirmation.</strong> For support, include the payment reference when contacting the Cheatly community.</p>
+      <div class="receipt-actions"><button type="button" id="printReceipt">Save or print confirmation</button><a class="back-link" href="../">Return to Cheatly website →</a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a href="../">Cheatly</a> · <a href="../pricing/">Pricing</a> · <a href="../tnc/">Terms &amp; Conditions</a> · <a href="../privacy/">Privacy Policy</a> · <a href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Support</a></footer>
+  <script src="../config.js?v=3"></script>
+  <script>
+    const query = new URLSearchParams(location.search);
+    const sessionID = query.get('session_id');
+    const apiBase = (query.get('api_base') || window.CHEATLY_API_BASE_URL || 'https://api.cheatly.pro').replace(/\/$/, '');
+    const plansElement = document.getElementById('plans');
+    const message = document.getElementById('message');
+    const checkoutContent = document.getElementById('checkoutContent');
+    const receipt = document.getElementById('receipt');
+    const receiptPlan = document.getElementById('receiptPlan');
+    const receiptAmount = document.getElementById('receiptAmount');
+    const receiptDate = document.getElementById('receiptDate');
+    const receiptPayment = document.getElementById('receiptPayment');
+    const receiptAccess = document.getElementById('receiptAccess');
+    let config;
+
+    function money(amount, currency = 'INR') {
+      return new Intl.NumberFormat(currency === 'INR' ? 'en-IN' : 'en-US', { style: 'currency', currency, maximumFractionDigits: currency === 'INR' ? 0 : 2 }).format(amount / 100);
+    }
+
+    function showReceipt(verified, selected, result) {
+      checkoutContent.hidden = true;
+      receipt.hidden = false;
+      receiptPlan.textContent = verified.plan_name || selected?.name || 'Cheatly access';
+      receiptAmount.textContent = Number.isFinite(Number(verified.amount))
+        ? money(Number(verified.amount), verified.currency || selected?.currency || 'INR')
+        : 'See Razorpay receipt';
+      receiptDate.textContent = verified.paid_at
+        ? new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(Number(verified.paid_at) * 1000))
+        : '—';
+      receiptPayment.textContent = verified.payment_id || result.razorpay_payment_id || '—';
+      receiptAccess.textContent = verified.expires_at
+        ? `Active through ${new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' }).format(new Date(verified.expires_at))}`
+        : 'Lifetime access';
+      document.title = 'Payment confirmed — Cheatly';
+    }
+
+    const planFeatures = {
+      monthly: ['Full workspace access', 'Core software updates', 'Community support and updates', 'Cancel anytime'],
+      annual: ['Everything in Monthly', 'All software updates included', 'Priority support as it rolls out', 'Early product and community updates'],
+      lifetime: ['Lifetime access to the product', 'No recurring billing', 'Core workspace experience', 'Community updates']
+    };
+
+    function renderPlans(plans) {
+      plansElement.innerHTML = plans.map((plan) => `
+        <article class="plan">
+          <h2>${plan.name}</h2>
+          <p>${plan.description}</p>
+          <ul>${(planFeatures[plan.key] || []).map((feature) => `<li>${feature}</li>`).join('')}</ul>
+          <strong>${money(plan.amountPaise, plan.currency)} <span class="small">/ ${plan.interval === 'annual' ? 'year' : plan.interval === 'lifetime' ? 'once' : 'month'}</span></strong>
+          <button data-plan="${plan.key}">${plan.interval === 'lifetime' ? 'Get lifetime access' : `Subscribe ${plan.interval === 'annual' ? 'annually' : 'monthly'}`}</button>
+        </article>`).join('');
+      plansElement.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => subscribe(button.dataset.plan, button)));
+    }
+
+    async function subscribe(planKey, button) {
+      if (!sessionID) { message.textContent = 'Your registration link is missing. Please reopen the installer or checkout link from your email.'; return; }
+      button.disabled = true;
+      message.textContent = 'Preparing secure checkout…';
+      try {
+        const selected = config.plans.find((plan) => plan.key === planKey);
+        const endpoint = selected?.kind === 'one_time' ? '/api/create-order' : '/api/create-subscription';
+        const response = await fetch(`${apiBase}${endpoint}`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ session_id: sessionID, plan_key: planKey }) });
+        const payment = await response.json();
+        if (!response.ok) throw new Error(payment.error || 'Could not prepare payment');
+        if (selected?.kind === 'one_time' && !payment.order_id) throw new Error('Could not prepare lifetime payment');
+        if (selected?.kind !== 'one_time' && !payment.subscription_id) throw new Error('Could not prepare subscription');
+        const options = selected?.kind === 'one_time'
+          ? { key: config.keyID, amount: payment.amount, currency: payment.currency, order_id: payment.order_id }
+          : { key: payment.key_id, subscription_id: payment.subscription_id };
+        const verifyEndpoint = selected?.kind === 'one_time' ? '/api/verify-payment' : '/api/verify-subscription';
+        const checkout = new Razorpay({ ...options, name: config.name, description: selected?.description || config.description, prefill: {}, theme: { color: '#34775e' }, handler: async (result) => {
+          const verified = await (await fetch(`${apiBase}${verifyEndpoint}`, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({...result, session_id: sessionID}) })).json();
+          message.textContent = verified.message || 'Your payment is being confirmed.';
+          if (verified.status === 'paid') showReceipt(verified, selected, result);
+        }});
+        checkout.on('payment.failed', () => { message.textContent = 'Payment was not completed. You can try again.'; button.disabled = false; });
+        checkout.open();
+      } catch (error) { message.textContent = error.message || 'Unable to load checkout.'; button.disabled = false; }
+    }
+    document.getElementById('printReceipt').addEventListener('click', () => window.print());
+
+    async function start() {
+      if (!sessionID) { message.textContent = 'Please start by registering to receive your installer link.'; return; }
+      try {
+        config = await (await fetch(`${apiBase}/api/config`)).json();
+        if (!config.plans?.length) throw new Error('Plans are not configured yet.');
+        renderPlans(config.plans);
+        message.textContent = config.region === 'INTL' ? 'International pricing is shown in USD.' : 'Choose the plan that fits you.';
+      } catch (error) { message.textContent = error.message || 'Unable to load plans.'; }
+    }
+    start();
+  </script>
+</body>
+</html>

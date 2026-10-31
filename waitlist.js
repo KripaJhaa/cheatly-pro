@@ -20,7 +20,9 @@
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Could not save your interest');
       status.className = 'form-status is-success';
-      status.textContent = 'You’re on the early-access list. We’ll email you if approved; the seven-day trial starts after approval.';
+      status.textContent = result.email_sent
+        ? 'Registration complete. Check your email for the installer link and setup instructions.'
+        : 'Registration complete. We’ll email your installer link and setup instructions shortly.';
       form.reset();
       const trackingParams = { method: 'website_form' };
       if (window.cheatlyTrack) {
@@ -29,7 +31,7 @@
       }
     } catch (error) {
       status.className = 'form-status is-error';
-      status.textContent = error.message || 'Something went wrong. Please try again.';
+      status.textContent = error.message || 'Registration could not be completed. Please try again.';
     } finally {
       submit.disabled = false;
     }

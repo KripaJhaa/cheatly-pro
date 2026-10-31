@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cheatly planned pricing after early access: monthly, annual, or lifetime access to the private macOS workspace.">
+  <meta name="description" content="Cheatly pricing: monthly, annual, or lifetime access to a private macOS workspace. Register, try it free, then choose a plan.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://cheatly.pro/pricing/">
   <link rel="stylesheet" href="../styles.css?v=17">
   <link rel="icon" href="../cheatly.png" type="image/png">
   <title>Cheatly Pricing — Private Mac Terminal</title>
   <style>
-    .price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:48px 0 28px}.price-card{display:flex;min-height:300px;flex-direction:column;padding:25px;border:1px solid var(--line);border-radius:10px;background:#fffdf8}.price-card.featured{border-color:#a8cb9c;background:#edf5e8;box-shadow:0 14px 30px #244c3b12}.price-card small{color:var(--green);font:500 10px DM Mono,monospace;letter-spacing:.08em;text-transform:uppercase}.price-card h2{margin:42px 0 10px;font-size:24px;letter-spacing:-.05em}.price-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}.price{margin:24px 0;color:var(--ink);font-size:30px;font-weight:800;letter-spacing:-.06em}.price span{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:0}.price-card .button{margin-top:auto;justify-content:center}.pricing-note{max-width:650px;margin:0 0 30px;color:var(--muted);font-size:13px;line-height:1.7}@media(max-width:800px){.price-grid{grid-template-columns:1fr}.price-card{min-height:0}.price-card h2{margin-top:28px}}
+    .price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:48px 0 28px}.price-card{display:flex;min-height:390px;flex-direction:column;padding:25px;border:1px solid var(--line);border-radius:10px;background:#fffdf8}.price-card.featured{border-color:#a8cb9c;background:#edf5e8;box-shadow:0 14px 30px #244c3b12}.price-card small{color:var(--green);font:500 10px DM Mono,monospace;letter-spacing:.08em;text-transform:uppercase}.price-card h2{margin:42px 0 10px;font-size:24px;letter-spacing:-.05em}.price-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}.price-card ul{display:grid;gap:8px;margin:20px 0 24px;padding:0 0 0 18px;color:var(--muted);font-size:12px;line-height:1.55}.price-card li::marker{color:var(--green)}.price{margin:0 0 24px;color:var(--ink);font-size:30px;font-weight:800;letter-spacing:-.06em}.price span{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:0}.price-card .button{margin-top:auto;justify-content:center}.pricing-note{max-width:650px;margin:0 0 30px;color:var(--muted);font-size:13px;line-height:1.7}.pricing-signup{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:70px;padding-top:60px;border-top:1px solid var(--line)}.pricing-signup h2{margin:15px 0 16px;font-size:clamp(40px,5vw,64px);line-height:.98;letter-spacing:-.08em}.pricing-signup h2 em{color:var(--green);font-family:Caveat,"Segoe Print",cursive;font-size:1.08em;font-weight:600;font-style:normal}.pricing-signup-copy>p{max-width:390px;color:var(--muted);font-size:13px;line-height:1.7}@media(max-width:800px){.price-grid{grid-template-columns:1fr}.price-card{min-height:0}.price-card h2{margin-top:28px}.pricing-signup{grid-template-columns:1fr;gap:35px;margin-top:55px;padding-top:44px}}
   </style>
 </head>
 <body>
@@ -21,22 +21,55 @@
   <main>
     <section class="article-page shell" aria-labelledby="pricing-title">
       <a class="back-link" href="../">← Back to cheatly.pro</a>
-      <span class="eyebrow">Planned pricing after early access</span>
+      <span class="eyebrow">Choose your access</span>
       <h1 id="pricing-title">Choose your<br><em>private workspace.</em></h1>
-      <p class="article-intro">These are planned options after early access. Join the list first; after approval, onboarding and the trial will help you evaluate the supported setup before payment is available.</p>
-      <div class="price-grid">
-        <article class="price-card featured"><small>Most flexible</small><h2>Monthly</h2><p>Planned monthly access for a private workspace after early access.</p><div class="price">₹299 <span>/ month</span></div><a class="button" href="../#join" data-plan="monthly">Join early access →</a></article>
-        <article class="price-card"><small>Best value</small><h2>Annual</h2><p>Planned annual access with a lower effective monthly cost after early access.</p><div class="price">₹2,990 <span>/ year</span></div><a class="button" href="../#join" data-plan="annual">Join early access →</a></article>
-        <article class="price-card"><small>One time</small><h2>Lifetime</h2><p>Planned one-time access to a future lifetime release after early access.</p><div class="price">₹2,000 <span>/ once</span></div><a class="button" href="../#join" data-plan="lifetime">Join early access →</a></article>
-      </div>
-      <p class="pricing-note">Prices shown are planned pricing after early access. These buttons only open the early-access form; payment and checkout will be available after trial or onboarding, when a plan is ready. Plans, access, and renewal are subject to the <a href="../tnc/">Cheatly terms</a>.</p>
-      <a class="button" href="../install/">Read installation steps →</a>
+      <p class="article-intro">Register to receive your installer link. Try Cheatly for <strong>7 days</strong>, then choose the plan that fits your workflow.</p>
+      <div id="pricingPlans" class="price-grid" role="status" aria-live="polite">Loading current prices…</div>
+      <p class="pricing-note">Prices are shown for your location and served from the current checkout configuration. Register first, try Cheatly free, then choose a plan. Plans, access, and renewal are subject to the <a href="../tnc/">Cheatly terms</a>.</p>
+      <section class="pricing-signup" id="pricing-register" aria-labelledby="pricing-register-title">
+        <div class="pricing-signup-copy"><span class="eyebrow">Start with a free trial</span><h2 id="pricing-register-title">Register.<br><em>Try it first.</em></h2><p>Enter your email and we’ll send your installer link. Enjoy Cheatly free for <strong>7 days</strong>, then subscribe when you’re ready to continue.</p></div>
+        <form class="interest-form" id="interestForm"><div class="form-heading"><strong>Get the installer link</strong><span>No payment today. Your <strong>7-day trial</strong> comes first.</span></div><label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label><label><span class="field-label">Mobile number <span class="optional">(optional)</span></span><input name="mobile" type="tel" autocomplete="tel" placeholder="+91 98765 43210"></label><label class="consent"><input name="consent" type="checkbox" required><span>I agree to receive the installer link and Cheatly updates.</span></label><button class="button" type="submit">Register and get installer <b>→</b></button><p class="form-status" id="interestStatus" role="status" aria-live="polite"></p></form>
+      </section>
+      <p><a class="button" href="../install/">Read installation steps →</a></p>
     </section>
   </main>
-  <footer class="footer shell"><span>Cheatly · 2026</span><span>macOS 13+ · <a href="../install/">Install</a> · <a href="../tnc/">Terms &amp; Conditions</a></span></footer>
+  <footer class="footer shell"><span>Cheatly · 2026</span><span>macOS 13+ · <a href="../install/">Install</a> · <a href="../tnc/">Terms &amp; Conditions</a> · <a href="../privacy/">Privacy Policy</a> · <a href="https://discord.gg/3Ug6gJwu9" target="_blank" rel="noopener">Support</a></span></footer>
   <script src="../config.js?v=3"></script>
   <script>window.GA4_MEASUREMENT_ID = typeof GA4_MEASUREMENT_ID !== "undefined" ? GA4_MEASUREMENT_ID : "";</script>
   <script>window.MIXPANEL_PROJECT_TOKEN = typeof MIXPANEL_PROJECT_TOKEN !== "undefined" ? MIXPANEL_PROJECT_TOKEN : "";</script>
   <script src="../analytics.js?v=4"></script>
+  <script>
+    const pricingPlans = document.getElementById('pricingPlans');
+    const pricingAPI = (window.CHEATLY_API_BASE_URL || 'https://api.cheatly.pro').replace(/\/$/, '');
+    const planCopy = {
+      monthly: { label: 'Most flexible', title: 'Monthly', description: 'Flexible access while you decide how Cheatly fits your workflow.', features: ['Full workspace access', 'Core software updates', 'Community support and updates', 'Cancel anytime'] },
+      annual: { label: 'Recommended', title: 'Annual', description: 'Stay current for a full year with support built in—less than twelve monthly payments.', features: ['Everything in Monthly', 'All software updates included', 'Priority support as it rolls out', 'Early product and community updates'] },
+      lifetime: { label: 'One time', title: 'Lifetime', description: 'One payment for long-term access to Cheatly.', features: ['Lifetime access to the product', 'No recurring billing', 'Core workspace experience', 'Community updates'] }
+    };
+    function priceText(amountMinor, currency) {
+      return new Intl.NumberFormat(currency === 'INR' ? 'en-IN' : 'en-US', { style: 'currency', currency, maximumFractionDigits: currency === 'INR' ? 0 : 2 }).format(amountMinor / 100);
+    }
+    function intervalText(interval) {
+      return interval === 'annual' ? 'year' : interval === 'lifetime' ? 'once' : 'month';
+    }
+    async function loadPricing() {
+      try {
+        const response = await fetch(`${pricingAPI}/api/plans`, { cache: 'no-store' });
+        const config = await response.json();
+        if (!response.ok || !Array.isArray(config.plans) || !config.plans.length) throw new Error('Prices are temporarily unavailable.');
+        pricingPlans.className = 'price-grid';
+        const hasAnnual = config.plans.some((plan) => plan.key === 'annual');
+        pricingPlans.innerHTML = config.plans.map((plan, index) => {
+          const copy = planCopy[plan.key] || { label: '', title: plan.name, description: plan.description, features: [] };
+          const featured = hasAnnual ? plan.key === 'annual' : index === 0;
+          return `<article class="price-card${featured ? ' featured' : ''}"><small>${copy.label}</small><h2>${copy.title}</h2><p>${copy.description}</p><ul>${copy.features.map((feature) => `<li>${feature}</li>`).join('')}</ul><div class="price">${priceText(plan.amountPaise, plan.currency)} <span>/ ${intervalText(plan.interval)}</span></div><a class="button" href="#pricing-register" data-plan="${plan.key}">Register to try →</a></article>`;
+        }).join('');
+      } catch (error) {
+        pricingPlans.textContent = error.message || 'Prices are temporarily unavailable.';
+      }
+    }
+    loadPricing();
+  </script>
+  <script src="../waitlist.js?v=3"></script>
 </body>
 </html>

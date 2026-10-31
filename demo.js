@@ -90,7 +90,7 @@ resizeCanvas(); updateControls(); requestAnimationFrame(draw);
 const accessCanvas = document.getElementById('accessCanvas');
 const accessCtx = accessCanvas.getContext('2d');
 const processCaption = document.getElementById('processCaption');
-const processSteps = ['Join the early-access list', 'We review your request', 'Installer sent by email'];
+const processSteps = ['Register to try Cheatly', 'Installer link sent', 'Try Cheatly, then subscribe'];
 let accessStartedAt = performance.now();
 
 function resizeAccessCanvas() {
@@ -111,7 +111,7 @@ function drawAccessProcess(now) {
   accessCtx.fillStyle = '#172622'; accessCtx.fillRect(0, 0, w, h);
   const left = Math.max(46, w * .1), right = Math.min(w - 46, w * .9), y = h * .48;
   accessCtx.strokeStyle = '#426454'; accessCtx.lineWidth = 2; accessCtx.beginPath(); accessCtx.moveTo(left, y); accessCtx.lineTo(right, y); accessCtx.stroke();
-  const labels = ['JOIN LIST', 'REVIEW', 'EMAIL'];
+  const labels = ['REGISTER', 'LINK', 'TRY'];
   const icons = ['✉', '✓', '↗'];
   const progress = (phase % 2) / 2;
   for (let i = 0; i < 3; i++) {
@@ -140,7 +140,7 @@ const storyTime = document.getElementById('storyTime');
 const storyDots = document.getElementById('storyDots');
 const storySlides = [
   {kicker:'CHEATLY', title:['Think in private.', 'Speak with confidence.'], body:'A real terminal layer for live screen sharing.', accent:'#c1e681'},
-  {kicker:'WHAT IT IS', title:['Your tools,', 'right beside you.'], body:'A private PTY workspace for Codex, Claude, local LLMs, Git, scripts, and CLI tools.', accent:'#8ed0a0'},
+  {kicker:'WHAT IT IS', title:['Your tools,', 'right beside you.'], body:'A private workspace for Codex, Claude, local LLMs, Git, scripts, and CLI tools.', accent:'#8ed0a0'},
   {kicker:'HOW IT WORKS', title:['Only you see', 'the terminal.'], body:'While your screen is shared, the audience sees the app you present and you see the private terminal in supported capture paths.', accent:'#83c8bc'},
   {kicker:'WHAT YOU CAN DO', title:['Ask. Test. Refine.', 'Keep moving.'], body:'Check commands, research ideas, rehearse explanations, and return to the conversation naturally.', accent:'#c1e681'}
 ];
@@ -302,7 +302,7 @@ if (blogCanvas) {
     blogCtx.fillStyle = '#ef7569'; blogCtx.beginPath(); blogCtx.arc(lx + 10, top + 50, 3, 0, Math.PI * 2); blogCtx.fill();
     blogCtx.fillStyle = '#e7be62'; blogCtx.beginPath(); blogCtx.arc(lx + 21, top + 50, 3, 0, Math.PI * 2); blogCtx.fill();
     blogText('$', lx, top + 86, 10, '#77d3c1'); blogText('codex', lx + 13, top + 86, 10, '#d4e2d4');
-    blogText(compact ? 'approved AI help' : 'approved AI help + notes', lx, top + 111, 9, '#c1e681');
+    blogText(compact ? 'permitted AI help' : 'permitted AI help + notes', lx, top + 111, 9, '#c1e681');
     blogText(compact ? 'your terminal' : 'your terminal commands', lx, top + 131, 9, '#b8c9ba');
     blogCtx.fillStyle = '#d5e2d2'; blogCtx.fillRect(rx, top + 42, boxWidth - 26, 53);
     blogCtx.fillStyle = '#aac0ad'; blogCtx.beginPath(); blogCtx.arc(rx + (boxWidth - 26) * .25, top + 68, 12, 0, Math.PI * 2); blogCtx.fill();
